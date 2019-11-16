@@ -58,11 +58,11 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="问题：采用inline-block布局时会出现div之间有间隙的情况如以下图片所示 这是它的css .search{     width: 400px;     height: 80px;     display: inline-block;     vertical-align: bottom; } .searchborder{     border: solid 3px #F44336;">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="http:&#x2F;&#x2F;github.com&#x2F;shenjiayao-sjy&#x2F;shenjiayao.github.io&#x2F;2019&#x2F;11&#x2F;08&#x2F;%E6%B6%88%E9%99%A4%E9%97%B4%E9%9A%99%E7%9A%84%E5%88%86%E4%BA%AB&#x2F;exm.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;github.com&#x2F;shenjiayao-sjy&#x2F;shenjiayao.github.io&#x2F;2019&#x2F;11&#x2F;08&#x2F;%E6%B6%88%E9%99%A4%E9%97%B4%E9%9A%99%E7%9A%84%E5%88%86%E4%BA%AB&#x2F;exm2.png">
-<meta property="og:updated_time" content="2019-11-16T14:41:23.341Z">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;shenjiayao-sjy&#x2F;markdown-photos&#x2F;master&#x2F;exm.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;shenjiayao-sjy&#x2F;markdown-photos&#x2F;master&#x2F;exm2.png">
+<meta property="og:updated_time" content="2019-11-16T14:49:35.241Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http:&#x2F;&#x2F;github.com&#x2F;shenjiayao-sjy&#x2F;shenjiayao.github.io&#x2F;2019&#x2F;11&#x2F;08&#x2F;%E6%B6%88%E9%99%A4%E9%97%B4%E9%9A%99%E7%9A%84%E5%88%86%E4%BA%AB&#x2F;exm.png">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;shenjiayao-sjy&#x2F;markdown-photos&#x2F;master&#x2F;exm.png">
 
 <link rel="canonical" href="http://github.com/shenjiayao-sjy/shenjiayao.github.io/2019/11/08/%E6%B6%88%E9%99%A4%E9%97%B4%E9%9A%99%E7%9A%84%E5%88%86%E4%BA%AB/">
 
@@ -207,7 +207,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-11-16 22:41:23" itemprop="dateModified" datetime="2019-11-16T22:41:23+08:00">2019-11-16</time>
+                <time title="Modified: 2019-11-16 22:49:35" itemprop="dateModified" datetime="2019-11-16T22:49:35+08:00">2019-11-16</time>
               </span>
 
           
@@ -221,7 +221,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="问题：采用inline-block布局时会出现div之间有间隙的情况"><a href="#问题：采用inline-block布局时会出现div之间有间隙的情况" class="headerlink" title="问题：采用inline-block布局时会出现div之间有间隙的情况"></a>问题：采用inline-block布局时会出现div之间有间隙的情况</h1><p>如以下图片所示<br><img src="/shenjiayao-sjy/shenjiayao.github.io/2019/11/08/%E6%B6%88%E9%99%A4%E9%97%B4%E9%9A%99%E7%9A%84%E5%88%86%E4%BA%AB/exm.png" alt="实例"></p>
+        <h1 id="问题：采用inline-block布局时会出现div之间有间隙的情况"><a href="#问题：采用inline-block布局时会出现div之间有间隙的情况" class="headerlink" title="问题：采用inline-block布局时会出现div之间有间隙的情况"></a>问题：采用inline-block布局时会出现div之间有间隙的情况</h1><p>如以下图片所示<br><img src="https://raw.githubusercontent.com/shenjiayao-sjy/markdown-photos/master/exm.png" alt="实例"></p>
 <p>这是它的css</p>
 <pre><code>.search{
     width: 400px;
@@ -264,7 +264,7 @@
     display: inline-block;
     vertical-align: bottom;
     font-size: 0; 
-}</code></pre><p>效果图为<br><img src="/shenjiayao-sjy/shenjiayao.github.io/2019/11/08/%E6%B6%88%E9%99%A4%E9%97%B4%E9%9A%99%E7%9A%84%E5%88%86%E4%BA%AB/exm2.png" alt="实例"></p>
+}</code></pre><p>效果图为<br><img src="https://raw.githubusercontent.com/shenjiayao-sjy/markdown-photos/master/exm2.png" alt="实例"></p>
 <h2 id="移除空格法"><a href="#移除空格法" class="headerlink" title="移除空格法"></a>移除空格法</h2><p>元素间留白间距出现的原因就是标签段之间的空格，因此，<strong>去掉HTML中的空格</strong>，自然间距就没了。考虑到代码可读性，显然连成一行的写法是不可取的，我们可以这么写：</p>
 <pre><code>&lt;div class=&quot;search&quot;&gt;
     &lt;div class=&quot;inline-block&quot;&gt;
