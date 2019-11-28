@@ -51,17 +51,17 @@
   };
 </script>
 
-  <meta name="description" content="Nothing is impossible.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="tags">
-<meta property="og:url" content="http:&#x2F;&#x2F;github.com&#x2F;shenjiayao-sjy&#x2F;shenjiayao.github.io&#x2F;tags&#x2F;index.html">
+  <meta name="description" content="js自测题的作答与分析1.var a = function(){} a.b = 1 a.prototype.b = 2 a.prototype.c = 3 a.prototype.d = 4 console.log(a.b)  console.log(new a().b)  var foo = new a() foo.c = 5 console.log(foo.c)  console.log(fo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="js自测">
+<meta property="og:url" content="http:&#x2F;&#x2F;github.com&#x2F;shenjiayao-sjy&#x2F;shenjiayao.github.io&#x2F;2019&#x2F;11&#x2F;28&#x2F;js%E8%87%AA%E6%B5%8B&#x2F;index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Nothing is impossible.">
+<meta property="og:description" content="js自测题的作答与分析1.var a = function(){} a.b = 1 a.prototype.b = 2 a.prototype.c = 3 a.prototype.d = 4 console.log(a.b)  console.log(new a().b)  var foo = new a() foo.c = 5 console.log(foo.c)  console.log(fo">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-11-03T02:37:26.573Z">
+<meta property="og:updated_time" content="2019-11-28T16:07:31.693Z">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://github.com/shenjiayao-sjy/shenjiayao.github.io/tags/">
+<link rel="canonical" href="http://github.com/shenjiayao-sjy/shenjiayao.github.io/2019/11/28/js%E8%87%AA%E6%B5%8B/">
 
 
 <script id="page-configurations">
@@ -69,14 +69,13 @@
   CONFIG.page = {
     sidebar: "",
     isHome: false,
-    isPost: false,
-    isPage: true,
+    isPost: true,
+    isPage: false,
     isArchive: false
   };
 </script>
 
-  <title>tags | Hexo
-  </title>
+  <title>js自测 | Hexo</title>
   
 
 
@@ -166,44 +165,143 @@
       <div class="main-inner">
         <div class="content-wrap">
           
-  
-  
 
           <div class="content">
             
 
   <div class="posts-expand">
-    
-    
-    
-    <div class="post-block" lang="en">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
+    <link itemprop="mainEntityOfPage" href="http://github.com/shenjiayao-sjy/shenjiayao.github.io/2019/11/28/js%E8%87%AA%E6%B5%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="shenjiaoyao-sjy">
+      <meta itemprop="description" content="Nothing is impossible.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
       <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          js自测
+        </h1>
 
-<h1 class="post-title" itemprop="name headline">tags
-</h1>
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
 
-<div class="post-meta">
+              <time title="Created: 2019-11-28 22:38:43" itemprop="dateCreated datePublished" datetime="2019-11-28T22:38:43+08:00">2019-11-28</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-11-29 00:07:31" itemprop="dateModified" datetime="2019-11-29T00:07:31+08:00">2019-11-29</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="js自测题的作答与分析"><a href="#js自测题的作答与分析" class="headerlink" title="js自测题的作答与分析"></a>js自测题的作答与分析</h1><h2 id="1"><a href="#1" class="headerlink" title="1."></a>1.</h2><pre><code>var a = function(){}
+a.b = 1
+a.prototype.b = 2
+a.prototype.c = 3
+a.prototype.d = 4
+console.log(a.b) 
+console.log(new a().b)
+
+var foo = new a()
+foo.c = 5
+console.log(foo.c) 
+console.log(foo.d)</code></pre><p>答：console.log的输出分别为1、2、5、4。</p>
+<p>##2.<br>     var Foo = function(){<br>         this.a = 1<br>         return {<br>             a:2<br>         }<br>     }</p>
+<pre><code>var bar = new Foo()
+console.log(bar.a)</code></pre><p>答:console.log的输出为2。</p>
+<p>原因为变量bar调用的函数foo所返回的属性a的值为2，即bar所接受的也就a:2。</p>
+<p>##3.<br>    var map = Object.create(null);<br>    console.log(“toString” in map); </p>
+<pre><code>var map = Object.create({a:1});
+console.log(&quot;toString&quot; in map); 
+console.log(&quot;a&quot; in map); </code></pre><p>##4.<br>    function foo(obj){<br>    return Object.prototype.toString.call(obj).slice(8,-1)}<br>函数foo的作用为</p>
+<p>##5.<br>    var a = {}<br>    a.bar = 2</p>
+<pre><code>Object.defineProperty(a, &quot;foo&quot;,
+                  { value: &quot;hi&quot;});
+
+console.log(delete a.foo)
+console.log(delete a.bar)
+
+a.foo = &quot;world&quot;
+console.log(a.foo)
+
+
+for (var key in a){
+console.log(key);
+}
+
+console.log(&quot;foo&quot; in a);
+console.log(&quot;bar&quot; in a);</code></pre><p>##6.<br>    var a = 1;</p>
+<pre><code>function test() {
+
+    a = 0;
+
+    console.log(a);
+
+    console.log(this.a);
+
+    var a;
+
+    console.log(a);
+
+}
+test();
+new test();</code></pre><p>答：test()的输出为0, 1, 0;<br>new test()的输出为0, undefined, 0。</p>
+<p>##7.<br>    function foo(){<br>        f = function(){<br>            console.log(‘1’);<br>        }<br>        return this;<br>    }<br>    foo.f = function(){<br>        console.log(‘2’);<br>    }<br>    foo.prototype.f = function(){<br>        console.log(‘3’);<br>    }<br>    var f = function(){<br>        console.log(‘4’);<br>    }<br>    function f(){<br>        console.log(‘5’);<br>    }<br>//写出下面的结果<br>foo.f();<br>f();<br>foo().f();<br>new foo.f();<br>new foo().f();<br>new new foo().f();</p>
+<p>写出结果说明原因</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+                <a href="/2019/11/08/%E6%B6%88%E9%99%A4%E9%97%B4%E9%9A%99%E7%9A%84%E5%88%86%E4%BA%AB/" rel="next" title="消除间隙的分享">
+                  <i class="fa fa-chevron-left"></i> 消除间隙的分享
+                </a>
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+            </div>
+          </div>
+      </footer>
+    
+  </article>
+  
+  
   
 
-</div>
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
-          
-      </div>
-      
-      
-      
-    </div>
-    
-
-    
-    
-    
   </div>
 
 
@@ -233,6 +331,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#js自测题的作答与分析"><span class="nav-number">1.</span> <span class="nav-text">js自测题的作答与分析</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1"><span class="nav-number">1.1.</span> <span class="nav-text">1.</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
