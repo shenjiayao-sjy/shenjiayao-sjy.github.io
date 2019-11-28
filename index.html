@@ -204,7 +204,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-11-29 00:07:31" itemprop="dateModified" datetime="2019-11-29T00:07:31+08:00">2019-11-29</time>
+                <time title="Modified: 2019-11-29 00:10:39" itemprop="dateModified" datetime="2019-11-29T00:10:39+08:00">2019-11-29</time>
               </span>
 
           
@@ -230,16 +230,27 @@ var foo = new a()
 foo.c = 5
 console.log(foo.c) 
 console.log(foo.d)</code></pre><p>答：console.log的输出分别为1、2、5、4。</p>
-<p>##2.<br>     var Foo = function(){<br>         this.a = 1<br>         return {<br>             a:2<br>         }<br>     }</p>
-<pre><code>var bar = new Foo()
+<h2 id="2"><a href="#2" class="headerlink" title="2."></a>2.</h2><pre><code>var Foo = function(){
+    this.a = 1
+    return {
+        a:2
+    }
+}
+
+var bar = new Foo()
 console.log(bar.a)</code></pre><p>答:console.log的输出为2。</p>
 <p>原因为变量bar调用的函数foo所返回的属性a的值为2，即bar所接受的也就a:2。</p>
-<p>##3.<br>    var map = Object.create(null);<br>    console.log(“toString” in map); </p>
-<pre><code>var map = Object.create({a:1});
+<h2 id="3"><a href="#3" class="headerlink" title="3."></a>3.</h2><pre><code>var map = Object.create(null);
 console.log(&quot;toString&quot; in map); 
-console.log(&quot;a&quot; in map); </code></pre><p>##4.<br>    function foo(obj){<br>    return Object.prototype.toString.call(obj).slice(8,-1)}<br>函数foo的作用为</p>
-<p>##5.<br>    var a = {}<br>    a.bar = 2</p>
-<pre><code>Object.defineProperty(a, &quot;foo&quot;,
+
+var map = Object.create({a:1});
+console.log(&quot;toString&quot; in map); 
+console.log(&quot;a&quot; in map); </code></pre><h2 id="4"><a href="#4" class="headerlink" title="4."></a>4.</h2><pre><code>function foo(obj){
+return Object.prototype.toString.call(obj).slice(8,-1)}</code></pre><p>函数foo的作用为</p>
+<h2 id="5"><a href="#5" class="headerlink" title="5."></a>5.</h2><pre><code>var a = {}
+a.bar = 2
+
+Object.defineProperty(a, &quot;foo&quot;,
                   { value: &quot;hi&quot;});
 
 console.log(delete a.foo)
@@ -254,8 +265,9 @@ console.log(key);
 }
 
 console.log(&quot;foo&quot; in a);
-console.log(&quot;bar&quot; in a);</code></pre><p>##6.<br>    var a = 1;</p>
-<pre><code>function test() {
+console.log(&quot;bar&quot; in a);</code></pre><h2 id="6"><a href="#6" class="headerlink" title="6."></a>6.</h2><pre><code>var a = 1;
+
+function test() {
 
     a = 0;
 
@@ -270,7 +282,24 @@ console.log(&quot;bar&quot; in a);</code></pre><p>##6.<br>    var a = 1;</p>
 }
 test();
 new test();</code></pre><p>答：test()的输出为0, 1, 0;<br>new test()的输出为0, undefined, 0。</p>
-<p>##7.<br>    function foo(){<br>        f = function(){<br>            console.log(‘1’);<br>        }<br>        return this;<br>    }<br>    foo.f = function(){<br>        console.log(‘2’);<br>    }<br>    foo.prototype.f = function(){<br>        console.log(‘3’);<br>    }<br>    var f = function(){<br>        console.log(‘4’);<br>    }<br>    function f(){<br>        console.log(‘5’);<br>    }<br>//写出下面的结果<br>foo.f();<br>f();<br>foo().f();<br>new foo.f();<br>new foo().f();<br>new new foo().f();</p>
+<h2 id="7"><a href="#7" class="headerlink" title="7."></a>7.</h2><pre><code>function foo(){
+    f = function(){
+        console.log(&apos;1&apos;);
+    }
+    return this;
+}
+foo.f = function(){
+    console.log(&apos;2&apos;);
+}
+foo.prototype.f = function(){
+    console.log(&apos;3&apos;);
+}
+var f = function(){
+    console.log(&apos;4&apos;);
+}
+function f(){
+    console.log(&apos;5&apos;);
+}</code></pre><p>//写出下面的结果<br>foo.f();<br>f();<br>foo().f();<br>new foo.f();<br>new foo().f();<br>new new foo().f();</p>
 <p>写出结果说明原因</p>
 
       
