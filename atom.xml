@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://github.com/shenjiayao-sjy/shenjiayao.github.io/"/>
-  <updated>2019-11-28T16:10:39.958Z</updated>
+  <updated>2019-11-16T14:49:35.241Z</updated>
   <id>http://github.com/shenjiayao-sjy/shenjiayao.github.io/</id>
   
   <author>
@@ -15,28 +15,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>js自测</title>
-    <link href="http://github.com/shenjiayao-sjy/shenjiayao.github.io/2019/11/28/js%E8%87%AA%E6%B5%8B/"/>
-    <id>http://github.com/shenjiayao-sjy/shenjiayao.github.io/2019/11/28/js自测/</id>
-    <published>2019-11-28T14:38:43.000Z</published>
-    <updated>2019-11-28T16:10:39.958Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="js自测题的作答与分析"><a href="#js自测题的作答与分析" class="headerlink" title="js自测题的作答与分析"></a>js自测题的作答与分析</h1><h2 id="1"><a href="#1" class="headerlink" title="1."></a>1.</h2><pre><code>var a = function(){}a.b = 1a.prototype.b = 2a.prototype.c = 3a.prototype.d = 4console.log(a.b) console.log(new a().b)var foo = new a()foo.c = 5console.log(foo.c) console.log(foo.d)</code></pre><p>答：console.log的输出分别为1、2、5、4。</p><h2 id="2"><a href="#2" class="headerlink" title="2."></a>2.</h2><pre><code>var Foo = function(){    this.a = 1    return {        a:2    }}var bar = new Foo()console.log(bar.a)</code></pre><p>答:console.log的输出为2。</p><p>原因为变量bar调用的函数foo所返回的属性a的值为2，即bar所接受的也就a:2。</p><h2 id="3"><a href="#3" class="headerlink" title="3."></a>3.</h2><pre><code>var map = Object.create(null);console.log(&quot;toString&quot; in map); var map = Object.create({a:1});console.log(&quot;toString&quot; in map); console.log(&quot;a&quot; in map); </code></pre><h2 id="4"><a href="#4" class="headerlink" title="4."></a>4.</h2><pre><code>function foo(obj){return Object.prototype.toString.call(obj).slice(8,-1)}</code></pre><p>函数foo的作用为</p><h2 id="5"><a href="#5" class="headerlink" title="5."></a>5.</h2><pre><code>var a = {}a.bar = 2Object.defineProperty(a, &quot;foo&quot;,                  { value: &quot;hi&quot;});console.log(delete a.foo)console.log(delete a.bar)a.foo = &quot;world&quot;console.log(a.foo)for (var key in a){console.log(key);}console.log(&quot;foo&quot; in a);console.log(&quot;bar&quot; in a);</code></pre><h2 id="6"><a href="#6" class="headerlink" title="6."></a>6.</h2><pre><code>var a = 1;function test() {    a = 0;    console.log(a);    console.log(this.a);    var a;    console.log(a);}test();new test();</code></pre><p>答：test()的输出为0, 1, 0;<br>new test()的输出为0, undefined, 0。</p><h2 id="7"><a href="#7" class="headerlink" title="7."></a>7.</h2><pre><code>function foo(){    f = function(){        console.log(&apos;1&apos;);    }    return this;}foo.f = function(){    console.log(&apos;2&apos;);}foo.prototype.f = function(){    console.log(&apos;3&apos;);}var f = function(){    console.log(&apos;4&apos;);}function f(){    console.log(&apos;5&apos;);}</code></pre><p>//写出下面的结果<br>foo.f();<br>f();<br>foo().f();<br>new foo.f();<br>new foo().f();<br>new new foo().f();</p><p>写出结果说明原因</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;js自测题的作答与分析&quot;&gt;&lt;a href=&quot;#js自测题的作答与分析&quot; class=&quot;headerlink&quot; title=&quot;js自测题的作答与分析&quot;&gt;&lt;/a&gt;js自测题的作答与分析&lt;/h1&gt;&lt;h2 id=&quot;1&quot;&gt;&lt;a href=&quot;#1&quot; class=&quot;header
-      
-    
-    </summary>
-    
-    
-    
-  </entry>
   
   <entry>
     <title>消除间隙的分享</title>
