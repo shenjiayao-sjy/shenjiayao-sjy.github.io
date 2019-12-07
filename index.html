@@ -204,7 +204,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-12-08 01:22:10" itemprop="dateModified" datetime="2019-12-08T01:22:10+08:00">2019-12-08</time>
+                <time title="Modified: 2019-12-08 01:25:44" itemprop="dateModified" datetime="2019-12-08T01:25:44+08:00">2019-12-08</time>
               </span>
 
           
@@ -218,8 +218,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>#http总结分享</p>
-<h2 id="TCP-TP协议族"><a href="#TCP-TP协议族" class="headerlink" title="TCP/TP协议族"></a>TCP/TP协议族</h2><p>其实机器是很笨的，没有任何智商，想让机器之间通信，必须要有一套完整通信规则，包括如何到达通信目标，使用的传输类型，等等都需要一套规范，这一整套规范就是协议。TCP/IP协议就是其中的这么一套协议族。</p>
+          <h2 id="TCP-TP协议族"><a href="#TCP-TP协议族" class="headerlink" title="TCP/TP协议族"></a>TCP/TP协议族</h2><p>其实机器是很笨的，没有任何智商，想让机器之间通信，必须要有一套完整通信规则，包括如何到达通信目标，使用的传输类型，等等都需要一套规范，这一整套规范就是协议。TCP/IP协议就是其中的这么一套协议族。</p>
 <h2 id="TCP-IP的分层管理"><a href="#TCP-IP的分层管理" class="headerlink" title="TCP/IP的分层管理"></a>TCP/IP的分层管理</h2><p>TCP/IP 协议族按层次分别分 为以下 4 层：应用层、传输层、网络层和数据链路层。处于不同层上的可以只考虑分派给自己的任务。</p>
 <h3 id="应用层"><a href="#应用层" class="headerlink" title="应用层"></a>应用层</h3><p>决定了向用户提供应用服务时通信的活动。</p>
 <p>具体协议有：HTTP，FTP（文件传输协议），DNS（域名系统，就是IP与域名互相转换）等。可见HTTP 协议处于该层。</p>
@@ -230,7 +229,8 @@
 <h2 id="TCP-IP通信传输流"><a href="#TCP-IP通信传输流" class="headerlink" title="TCP/IP通信传输流"></a>TCP/IP通信传输流</h2><p><img src="/shenjiayao-sjy/shenjiayao.github.io/2019/12/07/http%E6%80%BB%E7%BB%93%E5%88%86%E4%BA%AB/1.png" alt="图片"></p>
 <p>这是整个通信过程中数据流的走向。这种把数据信息包装起来的做法称为封装。</p>
 <h2 id="重要的HTTP协议"><a href="#重要的HTTP协议" class="headerlink" title="重要的HTTP协议"></a>重要的HTTP协议</h2><p>HTTP协议一般是用户客户端和服务器之间的通信。</p>
-<h3 id="负责传输的-IP-协议"><a href="#负责传输的-IP-协议" class="headerlink" title="负责传输的 IP 协议"></a>负责传输的 IP 协议</h3><p>IP（Internet Protocol）网际协议位于网络层。作用是把各种数据包传送给对方。。而要保证确实传送到对方那里，则需要满足各类条件。其中两个重要的条件是 IP 地址和 MAC 地址<strong>注意：不要把“IP”和“IP 地址”搞混，“IP”其实是一种协议的名称。</strong></p>
+<h3 id="负责传输的-IP-协议"><a href="#负责传输的-IP-协议" class="headerlink" title="负责传输的 IP 协议"></a>负责传输的 IP 协议</h3><p>IP（Internet Protocol）网际协议位于网络层。作用是把各种数据包传送给对方。。而要保证确实传送到对方那里，则需要满足各类条件。其中两个重要的条件是 IP 地址和 MAC 地址</p>
+<p><strong>注意：不要把“IP”和“IP 地址”搞混，“IP”其实是一种协议的名称。</strong></p>
 <h3 id="确保可靠性的-TCP-协议"><a href="#确保可靠性的-TCP-协议" class="headerlink" title="确保可靠性的 TCP 协议"></a>确保可靠性的 TCP 协议</h3><p>位于传输层。为了更容易传送大数据把数据分割，而且能够确认数据最终是否送达到对方。</p>
 <h3 id="负责域名解析的-DNS-服务"><a href="#负责域名解析的-DNS-服务" class="headerlink" title="负责域名解析的 DNS 服务"></a>负责域名解析的 DNS 服务</h3><p>位于应用层的协议。提供通过域名 查找 IP 地址，或逆向从 IP 地址反查域名的服务。</p>
 <h2 id="URI-和-URL"><a href="#URI-和-URL" class="headerlink" title="URI 和 URL"></a>URI 和 URL</h2><p>URL（Uniform Resource Locator，统一资源定位符）是使用Web浏览器等访问 We 页面时需要输入的网页地址。</p>
