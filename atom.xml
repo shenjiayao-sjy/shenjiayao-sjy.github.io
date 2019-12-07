@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://github.com/shenjiayao-sjy/shenjiayao.github.io/"/>
-  <updated>2019-11-16T14:49:35.241Z</updated>
+  <updated>2019-12-07T17:22:10.627Z</updated>
   <id>http://github.com/shenjiayao-sjy/shenjiayao.github.io/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>http总结分享</title>
+    <link href="http://github.com/shenjiayao-sjy/shenjiayao.github.io/2019/12/07/http%E6%80%BB%E7%BB%93%E5%88%86%E4%BA%AB/"/>
+    <id>http://github.com/shenjiayao-sjy/shenjiayao.github.io/2019/12/07/http总结分享/</id>
+    <published>2019-12-07T10:57:22.000Z</published>
+    <updated>2019-12-07T17:22:10.627Z</updated>
+    
+    <content type="html"><![CDATA[<p>#http总结分享</p><h2 id="TCP-TP协议族"><a href="#TCP-TP协议族" class="headerlink" title="TCP/TP协议族"></a>TCP/TP协议族</h2><p>其实机器是很笨的，没有任何智商，想让机器之间通信，必须要有一套完整通信规则，包括如何到达通信目标，使用的传输类型，等等都需要一套规范，这一整套规范就是协议。TCP/IP协议就是其中的这么一套协议族。</p><h2 id="TCP-IP的分层管理"><a href="#TCP-IP的分层管理" class="headerlink" title="TCP/IP的分层管理"></a>TCP/IP的分层管理</h2><p>TCP/IP 协议族按层次分别分 为以下 4 层：应用层、传输层、网络层和数据链路层。处于不同层上的可以只考虑分派给自己的任务。</p><h3 id="应用层"><a href="#应用层" class="headerlink" title="应用层"></a>应用层</h3><p>决定了向用户提供应用服务时通信的活动。</p><p>具体协议有：HTTP，FTP（文件传输协议），DNS（域名系统，就是IP与域名互相转换）等。可见HTTP 协议处于该层。</p><h3 id="传输层"><a href="#传输层" class="headerlink" title="传输层"></a>传输层</h3><p>对上层应用层，提供处于网络连接中的两台计算机之间的数据传输。</p><p>有两个性质不同的协议：TCP（Transmission Control Protocol，传输控制协议）和 UDP（User Data Protocol，用户数据报 协议）。</p><h3 id="网络层（又名网络互连层）"><a href="#网络层（又名网络互连层）" class="headerlink" title="网络层（又名网络互连层）"></a>网络层（又名网络互连层）</h3><p>规定了通过怎样的路径（所谓的传输路线）到达对方计算机，并把数据包传送给对方。</p><h3 id="链路层（又名数据链路层，网络接口层）"><a href="#链路层（又名数据链路层，网络接口层）" class="headerlink" title="链路层（又名数据链路层，网络接口层）"></a>链路层（又名数据链路层，网络接口层）</h3><p>用来处理连接网络的硬件部分。</p><h2 id="TCP-IP通信传输流"><a href="#TCP-IP通信传输流" class="headerlink" title="TCP/IP通信传输流"></a>TCP/IP通信传输流</h2><p><img src="/shenjiayao-sjy/shenjiayao.github.io/2019/12/07/http%E6%80%BB%E7%BB%93%E5%88%86%E4%BA%AB/1.png" alt="图片"></p><p>这是整个通信过程中数据流的走向。这种把数据信息包装起来的做法称为封装。</p><h2 id="重要的HTTP协议"><a href="#重要的HTTP协议" class="headerlink" title="重要的HTTP协议"></a>重要的HTTP协议</h2><p>HTTP协议一般是用户客户端和服务器之间的通信。</p><h3 id="负责传输的-IP-协议"><a href="#负责传输的-IP-协议" class="headerlink" title="负责传输的 IP 协议"></a>负责传输的 IP 协议</h3><p>IP（Internet Protocol）网际协议位于网络层。作用是把各种数据包传送给对方。。而要保证确实传送到对方那里，则需要满足各类条件。其中两个重要的条件是 IP 地址和 MAC 地址<strong>注意：不要把“IP”和“IP 地址”搞混，“IP”其实是一种协议的名称。</strong></p><h3 id="确保可靠性的-TCP-协议"><a href="#确保可靠性的-TCP-协议" class="headerlink" title="确保可靠性的 TCP 协议"></a>确保可靠性的 TCP 协议</h3><p>位于传输层。为了更容易传送大数据把数据分割，而且能够确认数据最终是否送达到对方。</p><h3 id="负责域名解析的-DNS-服务"><a href="#负责域名解析的-DNS-服务" class="headerlink" title="负责域名解析的 DNS 服务"></a>负责域名解析的 DNS 服务</h3><p>位于应用层的协议。提供通过域名 查找 IP 地址，或逆向从 IP 地址反查域名的服务。</p><h2 id="URI-和-URL"><a href="#URI-和-URL" class="headerlink" title="URI 和 URL"></a>URI 和 URL</h2><p>URL（Uniform Resource Locator，统一资源定位符）是使用Web浏览器等访问 We 页面时需要输入的网页地址。</p><p>URI（Uniform Resource Identifier，统一资源标识符）是由某个协议方案表示的资源的定位标识符。协议 方案是指访问资源所使用的协议类型名称。</p><p>URI 用字符串<strong>标识</strong>某一互联网资源，而 URL 表示资源的<strong>地点</strong>（互联 网上所处的位置）。可见 URL 是 URI 的子集。 </p><p>表示指定的 URI，要使用涵盖全部必要信息的绝对 URI、绝对 URL 以 及相对 URL。</p><p>绝对 URI 的格式：<img src="/shenjiayao-sjy/shenjiayao.github.io/2019/12/07/http%E6%80%BB%E7%BB%93%E5%88%86%E4%BA%AB/2.png" alt></p><h2 id="HTTP-报文"><a href="#HTTP-报文" class="headerlink" title="HTTP 报文"></a>HTTP 报文</h2><p>用于HTTP协议交互的信息被称为 HTTP 报文。请求必定由客户端发出，而服务器端回复响应。请求端（客户端）的 HTTP 报文叫做请求报文，响应端（服务器端）的叫做响应报文。<br>请求报文的结构：<img src="/shenjiayao-sjy/shenjiayao.github.io/2019/12/07/http%E6%80%BB%E7%BB%93%E5%88%86%E4%BA%AB/5.png" alt><br>实例:<img src="/shenjiayao-sjy/shenjiayao.github.io/2019/12/07/http%E6%80%BB%E7%BB%93%E5%88%86%E4%BA%AB/3.png" alt><br>响应报文的结构：<img src="/shenjiayao-sjy/shenjiayao.github.io/2019/12/07/http%E6%80%BB%E7%BB%93%E5%88%86%E4%BA%AB/6.png" alt><br>实例：<img src="/shenjiayao-sjy/shenjiayao.github.io/2019/12/07/http%E6%80%BB%E7%BB%93%E5%88%86%E4%BA%AB/4.png" alt></p><h2 id="HTTP是无状态的协议"><a href="#HTTP是无状态的协议" class="headerlink" title="HTTP是无状态的协议"></a>HTTP是无状态的协议</h2><p>HTTP 是一种不保存状态，即无状态协议。为了更快地处理大量事务，确保协议的可伸缩性，自身不具备保存之前发送过的请求或响应的功能。（但有了Cookie再用 HTTP协议通信，就可以管理状态。）</p><h2 id="HTTP请求方法"><a href="#HTTP请求方法" class="headerlink" title="HTTP请求方法"></a>HTTP请求方法</h2><p>GET：一般是获取资源。</p><p>POST：一般是传输实体主题，主要目的是将信息告诉服务器。</p><p>HEAD：获取报文的首部，一般不返回报文主题，确认资源URI是否有效 </p><p>OPTIONS：查询针对请求URI指定的资源支持的方法。 </p><p>PUT：：传输文件。一般不使用。</p><p>DELETE : 删除资源，一般很少用。</p><p>CONNECT：要求用隧道协议连接代理 。</p><h2 id="返回结果的HTTP状态码"><a href="#返回结果的HTTP状态码" class="headerlink" title="返回结果的HTTP状态码"></a>返回结果的HTTP状态码</h2><p>状态码的职责是当客户端向服务器端发送请求时，描述返回的请求结 果。借助状态码，用户可以知道服务器端是正常处理了请求，还是出现了错误。以3位数字和原因短语组成。数字中的第一位指定了响应类别后两位无分类。响应类别有以下 5 种。</p><p><img src="/shenjiayao-sjy/shenjiayao.github.io/2019/12/07/http%E6%80%BB%E7%BB%93%E5%88%86%E4%BA%AB/7.png" alt></p><p>其中200 OK：表示请求成功，服务器也成功返回响应</p><p>204 No Content :服务器接收的请求已成功处理，但在返回的响应报文中 不含实体的主体部分。另外，也不允许返回任何实体的主体</p><p>206 Partial Content :表示客户端进行了范围请求，而服务器成功执行了这部分的 GET 请求</p><p>301 Moved Permanently：永久重定向，浏览器会记下来，下次访问会直接发请求到被重定向的新位置</p><p>302 Found：临时重定向，只是这一次的请求被重定向了，下次还是会将请求，发送到旧的位置上</p><p>303 See Other:表示由于请求对应的资源存在着另一个 URI，应使用 GET 方法定向获取请求的资源。</p><p>304 Not Modified：缓存重定向，表示缓存的内容没被改变，浏览器可以直接使用缓存</p><p>307 Temporary Redirect 临时重定向:该状态码与 302 Found 有着相同的含义。</p><p>400 Bad Request: 该状态码表示请求报文中存在语法错误</p><p>401  Unauthorized：表示未授权，需要做用户验证</p><p>403 Forbidden：表示用户被禁止访问</p><p>404 Not Found：表示用户请求的资源找不到</p><p>500  Internal Server Error：服务器处理请求过程中发生了错误</p><p>503  Service Unavailable：服务器暂时无法使用，可能是因为停机维护或者服务器超载</p><h2 id="通信数据转发程序-：代理、网关、隧道"><a href="#通信数据转发程序-：代理、网关、隧道" class="headerlink" title="通信数据转发程序 ：代理、网关、隧道"></a>通信数据转发程序 ：代理、网关、隧道</h2><p>HTTP 通信时，除客户端和服务器以外，还有一些用于通信数据转发的应用程序，例如代理、网关和隧道。它们可以配合服务器工作。</p><h3 id="代理"><a href="#代理" class="headerlink" title="代理"></a>代理</h3><p>接收由客户端发送的请求并转发给服务器，同时也接收服务器返回的响应并转发给客户端。由代理服务器执行这个基本行为。持有资源实体的服务器被称为源服务器。每次通过代理服务器转发请求或响应时，会追加写入 Via 首部信息。</p><p><img src="/shenjiayao-sjy/shenjiayao.github.io/2019/12/07/http%E6%80%BB%E7%BB%93%E5%88%86%E4%BA%AB/8.png" alt></p><p>代理分为缓存代理和透明代理。前者会预先将资源的副本（缓存）保存在代理服务器上。接到相同请求时可直接将缓存作为响应返回。后者不对报文做任何加工。</p><h3 id="网关"><a href="#网关" class="headerlink" title="网关"></a>网关</h3><p>关能使通信线路上的服务器提供非 HTTP 协议服务。且能提高通信的安全性，因为可以在客户端与网关之间的通信 线路上加密以确保连接的安全。</p><h3 id="隧道"><a href="#隧道" class="headerlink" title="隧道"></a>隧道</h3><p>隧道可按要求建立起一条与其他服务器的通信线路。目的是确保客户端能与服务器进行安全的通信。本身不会去解析 HTTP 请求，与通信一起开始与结束。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;#http总结分享&lt;/p&gt;
+&lt;h2 id=&quot;TCP-TP协议族&quot;&gt;&lt;a href=&quot;#TCP-TP协议族&quot; class=&quot;headerlink&quot; title=&quot;TCP/TP协议族&quot;&gt;&lt;/a&gt;TCP/TP协议族&lt;/h2&gt;&lt;p&gt;其实机器是很笨的，没有任何智商，想让机器之间通信，
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
   
   <entry>
     <title>消除间隙的分享</title>
