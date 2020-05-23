@@ -51,14 +51,14 @@
   };
 </script>
 
-  <meta name="description" content="分享： 一些关于React Router的知识这段时间一直在用react写miniproject，所以想小小归纳一下比较困扰我的路由方面的知识 简介React Router是一个基于React之上的强大路由库，它可以让你向应用中快速地添加视图和数据流，同时保持页面与URL间的同步。 安装当我们安装好React App和所需环境并创建一个新项目后，cd进入此项目，然后按条件选择输入以下的一条代码，完">
+  <meta name="description" content="分享： 一些关于React Router的知识这段时间一直在用react写miniproject，所以小小归纳一下路由和有关方面的知识 简介React Router是一个基于React之上的强大路由库，它可以让你向应用中快速地添加视图和数据流，同时保持页面与URL间的同步。 安装当我们安装好React App和所需环境并创建一个新项目后，cd进入此项目，然后按条件选择输入以下的一条代码，完成安装">
 <meta property="og:type" content="article">
 <meta property="og:title" content="关于React Router的分享">
 <meta property="og:url" content="http:&#x2F;&#x2F;github.com&#x2F;shenjiayao-sjy&#x2F;shenjiayao.github.io&#x2F;2020&#x2F;05&#x2F;23&#x2F;%E5%85%B3%E4%BA%8EReact%20Router%E7%9A%84%E5%88%86%E4%BA%AB&#x2F;index.html">
 <meta property="og:site_name" content="YY’s Blog">
-<meta property="og:description" content="分享： 一些关于React Router的知识这段时间一直在用react写miniproject，所以想小小归纳一下比较困扰我的路由方面的知识 简介React Router是一个基于React之上的强大路由库，它可以让你向应用中快速地添加视图和数据流，同时保持页面与URL间的同步。 安装当我们安装好React App和所需环境并创建一个新项目后，cd进入此项目，然后按条件选择输入以下的一条代码，完">
+<meta property="og:description" content="分享： 一些关于React Router的知识这段时间一直在用react写miniproject，所以小小归纳一下路由和有关方面的知识 简介React Router是一个基于React之上的强大路由库，它可以让你向应用中快速地添加视图和数据流，同时保持页面与URL间的同步。 安装当我们安装好React App和所需环境并创建一个新项目后，cd进入此项目，然后按条件选择输入以下的一条代码，完成安装">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2020-05-23T18:30:07.262Z">
+<meta property="og:updated_time" content="2020-05-23T19:49:53.580Z">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="http://github.com/shenjiayao-sjy/shenjiayao.github.io/2020/05/23/%E5%85%B3%E4%BA%8EReact%20Router%E7%9A%84%E5%88%86%E4%BA%AB/">
@@ -204,7 +204,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-05-24 02:30:07" itemprop="dateModified" datetime="2020-05-24T02:30:07+08:00">2020-05-24</time>
+                <time title="Modified: 2020-05-24 03:49:53" itemprop="dateModified" datetime="2020-05-24T03:49:53+08:00">2020-05-24</time>
               </span>
 
           
@@ -218,7 +218,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="分享：-一些关于React-Router的知识"><a href="#分享：-一些关于React-Router的知识" class="headerlink" title="分享： 一些关于React Router的知识"></a>分享： 一些关于React Router的知识</h2><p>这段时间一直在用react写miniproject，所以想小小归纳一下比较困扰我的路由方面的知识</p>
+        <h2 id="分享：-一些关于React-Router的知识"><a href="#分享：-一些关于React-Router的知识" class="headerlink" title="分享： 一些关于React Router的知识"></a>分享： 一些关于React Router的知识</h2><p>这段时间一直在用react写miniproject，所以小小归纳一下路由和有关方面的知识</p>
 <h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>React Router是一个基于React之上的强大路由库，它可以让你向应用中快速地添加视图和数据流，同时保持页面与URL间的同步。</p>
 <h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>当我们安装好React App和所需环境并创建一个新项目后，cd进入此项目，然后按条件选择输入以下的一条代码，完成安装</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install react-router-dom</span><br><span class="line">yarn add react-router</span><br></pre></td></tr></table></figure>
@@ -269,18 +269,42 @@
 <p><strong>注意</strong>：其它一些组件同样有这三种区别，如<code>&lt;Redirect&gt;</code></p>
 </li>
 </ol>
-<h3 id="重定向组件"><a href="#重定向组件" class="headerlink" title="重定向组件"></a>重定向组件</h3><p>渲染<code>&lt;Redirect&gt;</code>会导航到新位置。新位置将覆盖历史记录堆栈中的当前位置，就像服务器端重定向（HTTP 3xx）一样。如：</p>
+<h3 id="重定向组件"><a href="#重定向组件" class="headerlink" title="重定向组件"></a>重定向组件</h3><p>1.渲染<code>&lt;Redirect&gt;</code>会导航到新位置。新位置将覆盖历史记录堆栈中的当前位置，就像服务器端重定向（HTTP 3xx）一样。如：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;Redirect exact from=&quot;/&quot; to=&quot;/homepage&quot; /&gt;</span><br></pre></td></tr></table></figure>
 
-<p><code>to</code>中可以写重定向到的URL或位置。<strong>注意</strong>：所有在<code>to</code>中使用的URL参数必须被<code>from</code>中的覆盖。</p>
-<p>push: 正确运用时，重定向会将新条目推入历史记录，而不是替换当前条目。如：</p>
+<p>2.<code>to</code>中可以写重定向到的URL或位置。<strong>注意</strong>：所有在<code>to</code>中使用的URL参数必须被<code>from</code>中的覆盖。</p>
+<p>3.<code>push</code>正确运用时，重定向会将新条目推入历史记录，而不是替换当前条目。如：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;Redirect push to=&quot;/somewhere/else&quot; /&gt;</span><br></pre></td></tr></table></figure>
 
 <h3 id="Switch组件"><a href="#Switch组件" class="headerlink" title="Switch组件"></a>Switch组件</h3><p>与一堆<strong><code>&lt;Route&gt;</code>s</strong>相比，它的独特之处在于它专门渲染了一条路线。而在一堆<strong><code>&lt;Route&gt;</code>s中</strong>，每个与位置匹配的<strong><code>&lt;Route&gt;</code></strong>都<em>包含在渲染内</em>。例：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">import &#123; Route, Switch &#125; from &quot;react-router&quot;;</span><br><span class="line"></span><br><span class="line">let routes = (</span><br><span class="line">  &lt;Switch&gt;</span><br><span class="line">    &lt;Route /&gt; </span><br><span class="line">    &lt;Route /&gt;</span><br><span class="line">    &lt;Route /&gt;</span><br><span class="line">  &lt;/Switch&gt;</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
 
 <p>只渲染第一个与位置匹配的子路由组件或重定向组件。</p>
-<h3 id="历史"><a href="#历史" class="headerlink" title="历史"></a>历史</h3>
+<h3 id="历史"><a href="#历史" class="headerlink" title="历史"></a>历史</h3><p>它是React Router仅有的两个主要依赖项之一（除了React本身），它提供了几种不同的实现来管理各种环境中JavaScript的会话历史。</p>
+<p><code>history</code>对象插件的使用可通过如下代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cnpm install history --save</span><br><span class="line">import createHistory from &apos;history/createBrowserHistory&apos;</span><br></pre></td></tr></table></figure>
+
+<p><code>history</code> 对象通常具有以下属性和方法：</p>
+<ul>
+<li><p><code>length</code> -（数字）历史记录堆栈中的条目数</p>
+</li>
+<li><p><code>action</code>- （字符串）当前动作（<code>PUSH</code>，<code>REPLACE</code>，或<code>POP</code>）</p>
+</li>
+<li><pre><code class="markdown">location -（对象）当前位置。可能具有以下属性：
+<span class="xml"><span class="comment"><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  - `pathname` -（字符串）URL的路径</span><br><span class="line">  - `search` -（字符串）URL查询字符串</span><br><span class="line">  - `hash` -（字符串）URL哈希片段</span><br><span class="line">  - `state`-（对象）特定位置的状态，例如通过`push(path, state)`在将该位置推入堆栈时所提供的状态。仅在浏览器和内存历史记录中可用。</span><br><span class="line"></span><br><span class="line">- `push(path, [state])` -（函数）将新条目推入历史记录堆栈</span><br><span class="line"></span><br><span class="line">- `replace(path, [state])` -（函数）替换历史记录堆栈上的当前条目</span><br><span class="line"></span><br><span class="line">- `go(n)`-（函数）通过`n`条目在历史记录堆栈中移动指针</span><br><span class="line"></span><br><span class="line">- `goBack()` -（函数）等同于 `go(-1)`     如以下一个例子：</span><br><span class="line"></span><br><span class="line">  ```react</span><br><span class="line">  ...</span><br><span class="line">  class SrBack extends React.Component &#123;</span><br><span class="line">      constructor(props) &#123;</span><br><span class="line">          super(props);</span><br><span class="line">          this.state = &#123;</span><br><span class="line">              history: require(&quot;history&quot;).createHashHistory,</span><br><span class="line">          &#125;;</span><br><span class="line">      &#125;</span><br><span class="line">  </span><br><span class="line">      goback = () =&gt; &#123;</span><br><span class="line">          this.state.history().goBack();</span><br><span class="line">      &#125;</span><br><span class="line">  </span><br><span class="line">      render() &#123;</span><br><span class="line">          return(</span><br><span class="line">              &lt;img src=&#123;back&#125; onClick=&#123;this.goback&#125; alt=&quot;backButton&quot; className=&quot;backButton&quot;/&gt;</span><br><span class="line">          );</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  ...</span><br></pre></td></tr></table></figure></span></span>
+
+
+</code></pre>
+</li>
+</ul>
+<ul>
+<li><p><code>goForward()</code> -（函数）等同于 <code>go(1)</code></p>
+</li>
+<li><p><code>block(prompt)</code>-（函数）防止导航</p>
+<p>待补…</p>
+</li>
+</ul>
+
     </div>
 
     
@@ -301,6 +325,9 @@
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
+                <a href="/2020/05/24/%E6%8D%A2%E7%94%B5%E8%84%91%E6%89%80%E5%AF%BC%E8%87%B4%E7%9A%84%E4%B8%80%E4%BA%9B%E9%BA%BB%E7%83%A6%E4%BA%8B/" rel="prev" title="换电脑所导致的一些麻烦事">
+                  换电脑所导致的一些麻烦事 <i class="fa fa-chevron-right"></i>
+                </a>
             </div>
           </div>
       </footer>
@@ -355,7 +382,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">4</span>
+          <span class="site-state-item-count">5</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
