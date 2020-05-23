@@ -58,7 +58,7 @@
 <meta property="og:site_name" content="YY’s Blog">
 <meta property="og:description" content="换电脑所导致的一些麻烦事 上一台电脑出现了较大的故障，把它修好的花销还不如直接换一台划算，于是我就入了新机，但麻烦也随之而来。新电脑虽然香，但是环境都得重新装过，还有一些事情想分享给大家。大家以后换电脑的时候应该能对你们有所帮助。  hexo的搬迁换电脑后要想继续写Blog，需要将Hexo博客从一台电脑迁移到换的电脑上 具体的操作： 1.克隆github上面生成的静态文件到本地 1git clon">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2020-05-23T20:46:00.905Z">
+<meta property="og:updated_time" content="2020-05-23T20:58:04.640Z">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="http://github.com/shenjiayao-sjy/shenjiayao.github.io/2020/05/24/%E6%8D%A2%E7%94%B5%E8%84%91%E6%89%80%E5%AF%BC%E8%87%B4%E7%9A%84%E4%B8%80%E4%BA%9B%E9%BA%BB%E7%83%A6%E4%BA%8B/">
@@ -198,7 +198,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2020-05-24 03:24:08 / Modified: 04:46:00" itemprop="dateCreated datePublished" datetime="2020-05-24T03:24:08+08:00">2020-05-24</time>
+              <time title="Created: 2020-05-24 03:24:08 / Modified: 04:58:04" itemprop="dateCreated datePublished" datetime="2020-05-24T03:24:08+08:00">2020-05-24</time>
             </span>
 
           
@@ -245,7 +245,27 @@
 <p>登陆github，点击用户头像并打开settings，再点击“SSH and GPG Keys”，然后点“Add SSH Key”，填上任意的Title，在Key文本框里粘贴id_rsa.pub文件的内容，最后点“Add Key”，就可以看到已经添加的密钥</p>
 <p>9.验证</p>
 <p>点“Add Key”之后还可以用<code>$ ssh git@github.com</code>验证有没有添加成功</p>
-<p>待补…</p>
+<h3 id="重新和github仓库建立连接"><a href="#重新和github仓库建立连接" class="headerlink" title="重新和github仓库建立连接"></a>重新和github仓库建立连接</h3><p>1.重新生成密钥（和上文相同</p>
+<p>2.新建一个文件夹，在这个新文件夹下新建一个git本地仓库，将终端在这个文件夹的路径下打开，然后执行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git init</span><br></pre></td></tr></table></figure>
+
+<p>3.设置用户名和邮箱</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;用户名&quot;</span><br><span class="line"></span><br><span class="line">git config --global user.email &quot;邮箱&quot;</span><br></pre></td></tr></table></figure>
+
+<p>4.设置你想要建立对应连接的远程仓库地址：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote add origin git@github.com:XXXXXXX/xxxxxxx.git</span><br></pre></td></tr></table></figure>
+
+<p><strong>这里的地址填写github仓库的SSH地址</strong></p>
+<p>5.把远程仓库的源代码拉取到本地</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git pull origin master --allow-unrelated-histories</span><br></pre></td></tr></table></figure>
+
+<p>接下来有一系列信息，可以直接回车</p>
+<p>在提示【The authenticity of host ‘github.com (192.30.253.112)’ can’t be established.<br>RSA key fingerprint is SHA256:nThbg6kXUpJWGl7E1IGOCspRomTxdCARLviKw6E5SY8.<br>Are you sure you want to continue connecting (yes/no)?】</p>
+<p>这一步骤的时候，不要直接敲回车，直接输入yes，不然会报错<br>6.建立本地分支和远程分支的追踪关系</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch --set-upstream-to=origin/master</span><br></pre></td></tr></table></figure>
+
+<p>到这一步，本地仓库重新与github远程仓库建立了连接</p>
+<p>再次执行git pull,出现up to date就没问题了</p>
 
     </div>
 
@@ -305,7 +325,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#换电脑所导致的一些麻烦事"><span class="nav-number">1.</span> <span class="nav-text">换电脑所导致的一些麻烦事</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#hexo的搬迁"><span class="nav-number">1.1.</span> <span class="nav-text">hexo的搬迁</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#换电脑所导致的一些麻烦事"><span class="nav-number">1.</span> <span class="nav-text">换电脑所导致的一些麻烦事</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#hexo的搬迁"><span class="nav-number">1.1.</span> <span class="nav-text">hexo的搬迁</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#重新和github仓库建立连接"><span class="nav-number">1.2.</span> <span class="nav-text">重新和github仓库建立连接</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
