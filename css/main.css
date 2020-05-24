@@ -1114,6 +1114,7 @@ pre .javascript .function {
 }
 .site-author-image {
   border: 1px solid #eee;
+  border-radius: 50%;
   display: block;
   height: auto;
   margin: 0 auto;
