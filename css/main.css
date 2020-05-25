@@ -1120,10 +1120,11 @@ pre .javascript .function {
   margin: 0 auto;
   max-width: 120px;
   transition: 1.4s all;
+  z-index: 1;
 }
 .site-author-image:hover {
   background-color: #55DAE1;
-  transform: rotate(360deg);
+  transform: rotate(360deg) scale(1.1);
 }
 .site-author-name {
   color: #222;
