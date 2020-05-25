@@ -3,11 +3,11 @@
   <title>YY’s Blog</title>
   
   
-  <link href="github.com/shenjiayao-sjy/shenjiayao.github.io/atom.xml" rel="self"/>
+  <link href="shenjiayao.github.io/atom.xml" rel="self"/>
   
-  <link href="http://github.com/shenjiayao-sjy/shenjiayao.github.io/"/>
+  <link href="http://shenjiayao.github.io/"/>
   <updated>2020-05-23T20:58:04.640Z</updated>
-  <id>http://github.com/shenjiayao-sjy/shenjiayao.github.io/</id>
+  <id>http://shenjiayao.github.io/</id>
   
   <author>
     <name>shenjiaoyao</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>换电脑所导致的一些麻烦事</title>
-    <link href="http://github.com/shenjiayao-sjy/shenjiayao.github.io/2020/05/24/%E6%8D%A2%E7%94%B5%E8%84%91%E6%89%80%E5%AF%BC%E8%87%B4%E7%9A%84%E4%B8%80%E4%BA%9B%E9%BA%BB%E7%83%A6%E4%BA%8B/"/>
-    <id>http://github.com/shenjiayao-sjy/shenjiayao.github.io/2020/05/24/%E6%8D%A2%E7%94%B5%E8%84%91%E6%89%80%E5%AF%BC%E8%87%B4%E7%9A%84%E4%B8%80%E4%BA%9B%E9%BA%BB%E7%83%A6%E4%BA%8B/</id>
+    <link href="http://shenjiayao.github.io/2020/05/24/%E6%8D%A2%E7%94%B5%E8%84%91%E6%89%80%E5%AF%BC%E8%87%B4%E7%9A%84%E4%B8%80%E4%BA%9B%E9%BA%BB%E7%83%A6%E4%BA%8B/"/>
+    <id>http://shenjiayao.github.io/2020/05/24/%E6%8D%A2%E7%94%B5%E8%84%91%E6%89%80%E5%AF%BC%E8%87%B4%E7%9A%84%E4%B8%80%E4%BA%9B%E9%BA%BB%E7%83%A6%E4%BA%8B/</id>
     <published>2020-05-23T19:24:08.987Z</published>
     <updated>2020-05-23T20:58:04.640Z</updated>
     
@@ -39,8 +39,8 @@
   
   <entry>
     <title>关于React Router的分享</title>
-    <link href="http://github.com/shenjiayao-sjy/shenjiayao.github.io/2020/05/23/%E5%85%B3%E4%BA%8EReact%20Router%E7%9A%84%E5%88%86%E4%BA%AB/"/>
-    <id>http://github.com/shenjiayao-sjy/shenjiayao.github.io/2020/05/23/%E5%85%B3%E4%BA%8EReact%20Router%E7%9A%84%E5%88%86%E4%BA%AB/</id>
+    <link href="http://shenjiayao.github.io/2020/05/23/%E5%85%B3%E4%BA%8EReact%20Router%E7%9A%84%E5%88%86%E4%BA%AB/"/>
+    <id>http://shenjiayao.github.io/2020/05/23/%E5%85%B3%E4%BA%8EReact%20Router%E7%9A%84%E5%88%86%E4%BA%AB/</id>
     <published>2020-05-22T17:33:49.000Z</published>
     <updated>2020-05-23T20:35:21.907Z</updated>
     
@@ -58,8 +58,8 @@
   
   <entry>
     <title>http总结分享</title>
-    <link href="http://github.com/shenjiayao-sjy/shenjiayao.github.io/2019/12/07/http%E6%80%BB%E7%BB%93%E5%88%86%E4%BA%AB/"/>
-    <id>http://github.com/shenjiayao-sjy/shenjiayao.github.io/2019/12/07/http%E6%80%BB%E7%BB%93%E5%88%86%E4%BA%AB/</id>
+    <link href="http://shenjiayao.github.io/2019/12/07/http%E6%80%BB%E7%BB%93%E5%88%86%E4%BA%AB/"/>
+    <id>http://shenjiayao.github.io/2019/12/07/http%E6%80%BB%E7%BB%93%E5%88%86%E4%BA%AB/</id>
     <published>2019-12-07T10:57:22.000Z</published>
     <updated>2020-05-23T20:59:05.233Z</updated>
     
@@ -77,8 +77,8 @@
   
   <entry>
     <title>消除间隙的分享</title>
-    <link href="http://github.com/shenjiayao-sjy/shenjiayao.github.io/2019/11/08/%E6%B6%88%E9%99%A4%E9%97%B4%E9%9A%99%E7%9A%84%E5%88%86%E4%BA%AB/"/>
-    <id>http://github.com/shenjiayao-sjy/shenjiayao.github.io/2019/11/08/%E6%B6%88%E9%99%A4%E9%97%B4%E9%9A%99%E7%9A%84%E5%88%86%E4%BA%AB/</id>
+    <link href="http://shenjiayao.github.io/2019/11/08/%E6%B6%88%E9%99%A4%E9%97%B4%E9%9A%99%E7%9A%84%E5%88%86%E4%BA%AB/"/>
+    <id>http://shenjiayao.github.io/2019/11/08/%E6%B6%88%E9%99%A4%E9%97%B4%E9%9A%99%E7%9A%84%E5%88%86%E4%BA%AB/</id>
     <published>2019-11-07T16:48:38.000Z</published>
     <updated>2020-05-23T19:50:18.369Z</updated>
     
@@ -114,8 +114,8 @@
   
   <entry>
     <title>Hello World</title>
-    <link href="http://github.com/shenjiayao-sjy/shenjiayao.github.io/2019/11/03/hello-world/"/>
-    <id>http://github.com/shenjiayao-sjy/shenjiayao.github.io/2019/11/03/hello-world/</id>
+    <link href="http://shenjiayao.github.io/2019/11/03/hello-world/"/>
+    <id>http://shenjiayao.github.io/2019/11/03/hello-world/</id>
     <published>2019-11-02T16:31:30.000Z</published>
     <updated>2019-11-02T16:31:30.000Z</updated>
     
