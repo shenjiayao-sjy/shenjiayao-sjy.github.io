@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <link rel="alternate" href="/atom.xml" title="YY’s Blog" type="application/atom+xml">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.5.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":true,"show_result":true,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: 'Copy',
+      copy_success: 'Copied',
+      copy_failure: 'Copy failed'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="第六章 语法(syntax)6.1 概述1.注释(comments)(i)  &#x2F;&#x2F; 单个注释(ii) &#x2F;*">
+<meta property="og:type" content="article">
+<meta property="og:title" content="读impatient-js的笔记和总结">
+<meta property="og:url" content="http:&#x2F;&#x2F;github.com&#x2F;shenjiayao-sjy&#x2F;shenjiayao.github.io&#x2F;2020&#x2F;07&#x2F;15&#x2F;%E8%AF%BBimpatient-js%E7%9A%84%E7%AC%94%E8%AE%B0%E5%92%8C%E6%80%BB%E7%BB%93&#x2F;index.html">
+<meta property="og:site_name" content="YY’s Blog">
+<meta property="og:description" content="第六章 语法(syntax)6.1 概述1.注释(comments)(i)  &#x2F;&#x2F; 单个注释(ii) &#x2F;*">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2020-07-15T02:45:40.768Z">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://github.com/shenjiayao-sjy/shenjiayao.github.io/2020/07/15/%E8%AF%BBimpatient-js%E7%9A%84%E7%AC%94%E8%AE%B0%E5%92%8C%E6%80%BB%E7%BB%93/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>读impatient-js的笔记和总结 | YY’s Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">YY’s Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tag"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
+    <link itemprop="mainEntityOfPage" href="http://github.com/shenjiayao-sjy/shenjiayao.github.io/2020/07/15/%E8%AF%BBimpatient-js%E7%9A%84%E7%AC%94%E8%AE%B0%E5%92%8C%E6%80%BB%E7%BB%93/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="shenjiaoyao">
+      <meta itemprop="description" content="Nothing is impossible.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YY’s Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          读impatient-js的笔记和总结
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-07-15 10:45:24 / Modified: 10:45:40" itemprop="dateCreated datePublished" datetime="2020-07-15T10:45:24+08:00">2020-07-15</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h3 id="第六章-语法-syntax"><a href="#第六章-语法-syntax" class="headerlink" title="第六章 语法(syntax)"></a>第六章 语法(syntax)</h3><h4 id="6-1-概述"><a href="#6-1-概述" class="headerlink" title="6.1 概述"></a>6.1 概述</h4><h5 id="1-注释-comments"><a href="#1-注释-comments" class="headerlink" title="1.注释(comments)"></a>1.注释(comments)</h5><p>(i)  // 单个注释</p><p>(ii) /*</p><a id="more"></a>
+
+<p>​     多行</p>
+<p>​     注释</p>
+<p>​     */</p>
+<h5 id="2-布尔值-Booleans"><a href="#2-布尔值-Booleans" class="headerlink" title="2.布尔值(Booleans)"></a>2.布尔值(Booleans)</h5><p>创建 Boolean 对象的语法：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="built_in">Boolean</span>(value);    <span class="comment">//构造函数</span></span><br><span class="line"><span class="built_in">Boolean</span>(value);        <span class="comment">//转换函数</span></span><br></pre></td></tr></table></figure>
+
+<p>当作为一个构造函数（带有运算符 new）调用时，Boolean() 将把它的参数转换成一个布尔值，并且返回一个包含该值的 Boolean 对象。</p>
+<p>如果作为一个函数（不带有运算符 new）调用时，Boolean() 只将把它的参数转换成一个原始的布尔值，并且返回这个值。</p>
+<p><strong>注释：</strong>如果省略 value 参数，或者设置为 0、-0、null、””、false、undefined 或 NaN，则该对象设置为 false。否则设置为 true（即使 value 参数是字符串 “false”）。</p>
+<h5 id="3-命名约定"><a href="#3-命名约定" class="headerlink" title="3.命名约定"></a>3.命名约定</h5><p>串联单词的常见大小写样式为：骆驼、下划线（也称为蛇）、破折号（也称为烤肉串）</p>
+<p>通常，JavaScript使用驼峰式大小写，常量除外。</p>
+<p>小写：</p>
+<ul>
+<li>函数，变量： <code>myFunction</code></li>
+<li>方法： <code>obj.myMethod</code></li>
+<li>CSS：<ul>
+<li>CSS实体： <code>special-class</code></li>
+<li>对应的JavaScript变量： <code>specialClass</code></li>
+</ul>
+</li>
+</ul>
+<p>大写：</p>
+<ul>
+<li><p>类： <code>MyClass</code></p>
+</li>
+<li><p>常数： </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">MY_CONSTANT</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>常量通常也以驼峰形式编写： <code>myConstant</code></li>
+</ul>
+</li>
+</ul>
+<p>更多：</p>
+<p>如果参数名称以下划线开头（或为下划线），则表示未使用此参数-例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">arr.map((_x, i) =&gt; i)</span><br></pre></td></tr></table></figure>
+
+<p>如果对象的属性名称以下划线开头，则该属性被视为私有：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ValueWrapper</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>(value) &#123;</span><br><span class="line">    <span class="keyword">this</span>._value = value;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="6-2-标识符-identifiers"><a href="#6-2-标识符-identifiers" class="headerlink" title="6.2 标识符(identifiers)"></a>6.2 标识符(identifiers)</h4><h5 id="1-有效标识符-变量名等"><a href="#1-有效标识符-变量名等" class="headerlink" title="1.有效标识符(变量名等)"></a>1.有效标识符(变量名等)</h5><p>变量名称和属性名称的语法类别称为<strong>标识符</strong>。</p>
+<p>第一个字符：</p>
+<ul>
+<li>Unicode字母（包括带重音符号的<code>é</code>和<code>ü</code>和非拉丁字母的字符，例如<code>α</code>）</li>
+<li><code>$</code></li>
+<li><code>_</code></li>
+</ul>
+<p>后续字符：</p>
+<ul>
+<li>合法的第一个字符</li>
+<li>Unicode数字（包括东方阿拉伯数字）</li>
+<li>其他一些Unicode标记和标点符号</li>
+</ul>
+<h5 id="2-保留字-reserved-words"><a href="#2-保留字-reserved-words" class="headerlink" title="2.保留字(reserved words)"></a>2.保留字(reserved words)</h5><p>保留字不能是变量名，但可以是属性名。</p>
+<p>不应该使用全局变量的名字(<code>String</code>，<code>Math</code>)为自己的变量和参数等。</p>
+<h4 id="6-3-语句-statement-与表达式-expression"><a href="#6-3-语句-statement-与表达式-expression" class="headerlink" title="6.3 语句(statement)与表达式(expression)"></a>6.3 语句(statement)与表达式(expression)</h4><h5 id="1-语句"><a href="#1-语句" class="headerlink" title="1.语句"></a>1.语句</h5><p>一个语句是一段可被执行的代码，并执行某种动作。例如if语句或函数声明等。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">twice</span>(<span class="params">x</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> x + x;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="2-表达式"><a href="#2-表达式" class="headerlink" title="2.表达式"></a>2.表达式</h5><p>一个表达式是一段可被评估的代码，以产生一个值。</p>
+<p>例如，括号之间的代码是一个表达式：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">let myStr = (myBool ? &apos;Yes&apos; : &apos;No&apos;);</span><br></pre></td></tr></table></figure>
+
+<p><code>_?_:_</code>括号之间使用的运算符称为三元运算符。它是<code>if</code>语句的表达式版本。</p>
+<h5 id="3-更多规范"><a href="#3-更多规范" class="headerlink" title="3.更多规范"></a>3.更多规范</h5><ul>
+<li>函数的主体必须是一系列语句</li>
+<li>函数调用或方法调用的参数必须为表达式</li>
+<li>表达式可以用作语句，它们被称为表达式语句；反之则不成立</li>
+</ul>
+<h4 id="6-4-不明确的语法"><a href="#6-4-不明确的语法" class="headerlink" title="6.4 不明确的语法"></a>6.4 不明确的语法</h4><h5 id="1-函数声明和函数表达式"><a href="#1-函数声明和函数表达式" class="headerlink" title="1.函数声明和函数表达式"></a>1.函数声明和函数表达式</h5><p>一个函数声明为一个语句：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">id</span>(<span class="params">x</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> x;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>一个函数表达式是一个表达式（=的右侧）：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">const id = function me(x) &#123;</span><br><span class="line">  return x;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h5 id="2-对象字面量和块"><a href="#2-对象字面量和块" class="headerlink" title="2.对象字面量和块"></a>2.对象字面量和块</h5><p>在下面的代码中，<code>{}</code>是一个对象字面量：一个创建空对象的表达式。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const obj = &#123;&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>这是一个空的代码块（一条语句）：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="3-消除分歧"><a href="#3-消除分歧" class="headerlink" title="3.消除分歧"></a>3.消除分歧</h5><p>为了解决歧义，以<code>function</code>或<code>{</code>开头的语句永远不会被解释为表达式。如果要让表达式语句以以下任一标记开头，则必须将其用括号括起来：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span> (<span class="params">x</span>) </span>&#123; <span class="built_in">console</span>.log(x) &#125;)(<span class="string">'abc'</span>);</span><br></pre></td></tr></table></figure>
+
+<p>先通过函数表达式创建了一个函数，然后调用它</p>
+<h4 id="6-5-分号-semicolons"><a href="#6-5-分号-semicolons" class="headerlink" title="6.5 分号(semicolons)"></a>6.5 分号(semicolons)</h4><h5 id="1-法则"><a href="#1-法则" class="headerlink" title="1.法则"></a>1.法则</h5><p>以大括号结尾的语句后面没有分号；如果有，则被解释为空语句。</p>
+<h5 id="2-控制语句-control-statements"><a href="#2-控制语句-control-statements" class="headerlink" title="2.控制语句(control statements)"></a>2.控制语句(control statements)</h5><p>如while loop:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> (condition)</span><br><span class="line">  statement</span><br></pre></td></tr></table></figure>
+
+<p>控制语句的主体就是一个语句，它可以是单个的一条语句，但块也是语句，也可以作为控制语句的主体。</p>
+<p>如果下次要一个空的主体，既可以是一个空的语句（只加一个分号），也可以是一个空的块。</p>
+<h4 id="6-6-自动分号插入-ASI"><a href="#6-6-自动分号插入-ASI" class="headerlink" title="6.6 自动分号插入(ASI)"></a>6.6 自动分号插入(ASI)</h4><h5 id="1-工作原理"><a href="#1-工作原理" class="headerlink" title="1.工作原理"></a>1.工作原理</h5><p>ASI的工作原理如下。语句的解析将继续进行，直到出现以下任何一种情况：</p>
+<ul>
+<li>分号</li>
+<li>行终止符后跟非法令牌</li>
+</ul>
+<p>换句话说，ASI可以看作是在换行符处插入分号。</p>
+<h5 id="2-意外触发"><a href="#2-意外触发" class="headerlink" title="2.意外触发"></a>2.意外触发</h5><p>JavaScript禁止在某些令牌后换行。如果确实插入换行符，也会插入分号。</p>
+<p>与实际最相关的令牌是<code>return</code>。例如，考虑以下代码：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span></span><br><span class="line">&#123;</span><br><span class="line">  first: <span class="string">'jane'</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>这段代码被解析为：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span>;</span><br><span class="line">&#123;</span><br><span class="line">  first: <span class="string">'jane'</span>;</span><br><span class="line">&#125;</span><br><span class="line">;</span><br></pre></td></tr></table></figure>
+
+<p>可以防止意外地返回一行中令牌<code>return</code>后的值。</p>
+<h5 id="3-最佳做法"><a href="#3-最佳做法" class="headerlink" title="3.最佳做法"></a>3.最佳做法</h5><p>建议始终编写分号。</p>
+<h4 id="6-7-严格模式-strict-与马虎-sloppy-模式"><a href="#6-7-严格模式-strict-与马虎-sloppy-模式" class="headerlink" title="6.7 严格模式(strict)与马虎(sloppy)模式"></a>6.7 严格模式(strict)与马虎(sloppy)模式</h4><p>脚本中的默认模式为普通的“马虎”模式（代码片段是模块的先驱，并受浏览器支持），而严格模式是模块和类中的默认模式，可以在脚本中打开。在此模式下，正常模式的一些陷阱被消除，并且引发了更多异常。</p>
+<p>在现代JavaScript代码中，几乎不会遇到马虎模式，该模式几乎总是位于模块中。</p>
+<h5 id="1-严格模式"><a href="#1-严格模式" class="headerlink" title="1.严格模式"></a>1.严格模式</h5><p>在脚本文件和CommonJS模块中，通过在第一行中放置以下代码，可以为完整文件打开严格模式(ECMAScript 5之前的版本会完全忽略它)：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">'use strict'</span>;</span><br></pre></td></tr></table></figure>
+
+<p>还可以仅使用一个功能就打开严格模式：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">functionInStrictMode</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"><span class="meta">  'use strict'</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="2-马虎模式的陷阱"><a href="#2-马虎模式的陷阱" class="headerlink" title="2.马虎模式的陷阱"></a>2.马虎模式的陷阱</h5><p>(i)改变未声明的变量将创造全局变量</p>
+<p>(ii)函数声明在严格模式中是块作用域但在马虎模式中是函数作用域</p>
+<p>在严格模式下，通过函数声明创建的变量仅存在于最里面的封闭块中</p>
+<p>(iii)更改不可变数据时，草率模式不会引发异常</p>
+<p>在严格模式下，如果尝试更改不可变数据，则会出现异常;而在草率模式下，分配静默失败</p>
+<h3 id="第十章-变量和赋值-variables-and-assignments"><a href="#第十章-变量和赋值-variables-and-assignments" class="headerlink" title="第十章 变量和赋值(variables and assignments)"></a>第十章 变量和赋值(variables and assignments)</h3><h4 id="10-1-let"><a href="#10-1-let" class="headerlink" title="10.1 let"></a>10.1 let</h4><p>通过<code>let</code>声明的变量是可变的，而且可以同时声明和赋值</p>
+<h4 id="10-2-const"><a href="#10-2-const" class="headerlink" title="10.2 const"></a>10.2 const</h4><p>通过<code>const</code>声明的变量是不变的，必须立即初始化</p>
+<h5 id="1-const和不变"><a href="#1-const和不变" class="headerlink" title="1.const和不变"></a>1.const和不变</h5><p><code>const</code>仅表示绑定(变量名称和变量值之间的关联)是不可变的，该值本身可以是可变的，如改变其属性</p>
+<h5 id="2-const和循环"><a href="#2-const和循环" class="headerlink" title="2.const和循环"></a>2.const和循环</h5><p>使用const和for-of循环，每个迭代都会创建新的绑定，如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="string">'hello'</span>, <span class="string">'world'</span>];</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">const</span> elem <span class="keyword">of</span> arr) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(elem);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// Output:</span></span><br><span class="line"><span class="comment">// 'hello'</span></span><br><span class="line"><span class="comment">// 'world'</span></span><br></pre></td></tr></table></figure>
+
+<p>但在普通的for循环中，必须使用<code>let</code>:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i=<span class="number">0</span>; i&lt;arr.length; i++) &#123;</span><br><span class="line">  <span class="keyword">const</span> elem = arr[i];</span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="3-选择"><a href="#3-选择" class="headerlink" title="3. 选择"></a>3. 选择</h5><p>仅在不能使用<code>const</code>时用<code>let</code></p>
+<h4 id="10-3-一个变量的作用域"><a href="#10-3-一个变量的作用域" class="headerlink" title="10.3 一个变量的作用域"></a>10.3 一个变量的作用域</h4><h5 id="1-法则-1"><a href="#1-法则-1" class="headerlink" title="1.法则"></a>1.法则</h5><p>变量的范围是程序可以访问的区域</p>
+<p>通过<code>const</code>和<code>let</code>声明的变量被称为是块作用域的，因为它们的范围始终是周围的最内部块。</p>
+<h5 id="2-阴影变量-Shadowing-variables"><a href="#2-阴影变量-Shadowing-variables" class="headerlink" title="2.阴影变量(Shadowing variables)"></a>2.阴影变量(Shadowing variables)</h5><p>不能在同一级别两次声明同一变量，但可以嵌套一个块，在块外声明相同的变量名；在块内部，内部<code>x</code>是唯一具有该名称的可访问变量，离开块后，可以再次访问旧值。</p>
+<h4 id="10-4-术语-terminology-：静态-static-vs-动态-dynamic"><a href="#10-4-术语-terminology-：静态-static-vs-动态-dynamic" class="headerlink" title="10.4 术语(terminology)：静态(static) vs 动态(dynamic)"></a>10.4 术语(terminology)：静态(static) vs 动态(dynamic)</h4><ul>
+<li><p><em>静态</em>意味着某些东西与源代码有关，无需执行代码即可确定。</p>
+</li>
+<li><p><em>动态</em>意味着在运行时。</p>
+<h5 id="1-静态现象：变量的作用域"><a href="#1-静态现象：变量的作用域" class="headerlink" title="1.静态现象：变量的作用域"></a>1.静态现象：变量的作用域</h5><p>如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> x = <span class="number">3</span>;</span><br><span class="line">  <span class="comment">// ···</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>x是静态范围，其范围是固定的，并且在运行时不会更改。</p>
+<p>变量的范围形成了一棵静态数。（通过静态嵌套）</p>
+<h5 id="2-动态现象：函数调用"><a href="#2-动态现象：函数调用" class="headerlink" title="2.动态现象：函数调用"></a>2.动态现象：函数调用</h5><p>函数是否被调用只能在运行时确定。</p>
+<p>函数调用形成一棵动态树（通过动态调用）。</p>
+<h4 id="10-5-全局变量和全局对象"><a href="#10-5-全局变量和全局对象" class="headerlink" title="10.5 全局变量和全局对象"></a>10.5 全局变量和全局对象</h4><h5 id="1-法则-2"><a href="#1-法则-2" class="headerlink" title="1.法则"></a>1.法则</h5><p>JavaScript的变量范围是嵌套的。它们形成一棵树：</p>
+<ul>
+<li><p>最外部的作用域是树的根。</p>
+</li>
+<li><p>直接包含在该范围中的范围是根的子级。</p>
+</li>
+</ul>
+<p>根也称为全局范围。在web浏览器中，一个直接位于该范围内的唯一位置是脚本的顶层。全局范围的变量称为全局变量，可在任何地方访问</p>
+<h5 id="2-种类"><a href="#2-种类" class="headerlink" title="2.种类"></a>2.种类</h5><p>全局变量有两种：</p>
+<ul>
+<li>全局<strong>声明</strong>变量是普通变量。<ul>
+<li>只能在脚本的顶层通过<code>const</code>，<code>let</code>和<code>class</code>声明来创建它们。</li>
+</ul>
+</li>
+<li>全局<strong>对象</strong>变量存储在所谓的全局对象的<strong>属性</strong>中<ul>
+<li>它们通过<code>var</code>和函数声明在脚本的顶层创建。</li>
+<li>可以通过全局变量访问全局对象<code>globalThis</code>。它可用于创建，读取和删除全局对象变量。</li>
+<li>除此之外，全局对象变量的工作方式与普通变量类似。</li>
+</ul>
+</li>
+</ul>
+<h4 id="10-6-声明：范围和激活"><a href="#10-6-声明：范围和激活" class="headerlink" title="10.6 声明：范围和激活"></a>10.6 声明：范围和激活</h4><h4 id="10-7-闭包"><a href="#10-7-闭包" class="headerlink" title="10.7 闭包"></a>10.7 闭包</h4></li>
+</ul>
+<h3 id="第十二章-运算符-operators"><a href="#第十二章-运算符-operators" class="headerlink" title="第十二章 运算符(operators)"></a>第十二章 运算符(operators)</h3><h4 id="12-6-Javascript逻辑运算符“或”的应用"><a href="#12-6-Javascript逻辑运算符“或”的应用" class="headerlink" title="12.6 Javascript逻辑运算符“或”的应用"></a>12.6 Javascript逻辑运算符“或”的应用</h4><p>或运算符可以被用来为一个新定义好的变量提供一个默认值:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> bar = <span class="literal">false</span>,</span><br><span class="line">foobar = <span class="number">5</span>,</span><br><span class="line">foo = bar || foobar; <span class="comment">// foo = 5</span></span><br></pre></td></tr></table></figure>
+
+<p>在上面这个例子当中，只有当bar蕴涵假的时候，foobar才会将它自身的值传递给foo。</p>
+<p>如果一个变量有可能是空，那么或运算符可以在函数中用来提供一个默认值：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"> a, b </span>)</span>&#123;</span><br><span class="line">    a = a || <span class="number">5</span>;</span><br><span class="line">    b = b || <span class="number">6</span>;</span><br><span class="line">    <span class="built_in">console</span>.log( <span class="string">'Values:'</span> + a + <span class="string">','</span> +b );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+                <a href="/2020/05/24/%E6%8D%A2%E7%94%B5%E8%84%91%E6%89%80%E5%AF%BC%E8%87%B4%E7%9A%84%E4%B8%80%E4%BA%9B%E9%BA%BB%E7%83%A6%E4%BA%8B/" rel="next" title="换电脑所导致的一些麻烦事">
+                  <i class="fa fa-chevron-left"></i> 换电脑所导致的一些麻烦事
+                </a>
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+            </div>
+          </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#第六章-语法-syntax"><span class="nav-number">1.</span> <span class="nav-text">第六章 语法(syntax)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#6-1-概述"><span class="nav-number">1.1.</span> <span class="nav-text">6.1 概述</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-注释-comments"><span class="nav-number">1.1.1.</span> <span class="nav-text">1.注释(comments)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-布尔值-Booleans"><span class="nav-number">1.1.2.</span> <span class="nav-text">2.布尔值(Booleans)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-命名约定"><span class="nav-number">1.1.3.</span> <span class="nav-text">3.命名约定</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-2-标识符-identifiers"><span class="nav-number">1.2.</span> <span class="nav-text">6.2 标识符(identifiers)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-有效标识符-变量名等"><span class="nav-number">1.2.1.</span> <span class="nav-text">1.有效标识符(变量名等)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-保留字-reserved-words"><span class="nav-number">1.2.2.</span> <span class="nav-text">2.保留字(reserved words)</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-3-语句-statement-与表达式-expression"><span class="nav-number">1.3.</span> <span class="nav-text">6.3 语句(statement)与表达式(expression)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-语句"><span class="nav-number">1.3.1.</span> <span class="nav-text">1.语句</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-表达式"><span class="nav-number">1.3.2.</span> <span class="nav-text">2.表达式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-更多规范"><span class="nav-number">1.3.3.</span> <span class="nav-text">3.更多规范</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-4-不明确的语法"><span class="nav-number">1.4.</span> <span class="nav-text">6.4 不明确的语法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-函数声明和函数表达式"><span class="nav-number">1.4.1.</span> <span class="nav-text">1.函数声明和函数表达式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-对象字面量和块"><span class="nav-number">1.4.2.</span> <span class="nav-text">2.对象字面量和块</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-消除分歧"><span class="nav-number">1.4.3.</span> <span class="nav-text">3.消除分歧</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-5-分号-semicolons"><span class="nav-number">1.5.</span> <span class="nav-text">6.5 分号(semicolons)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-法则"><span class="nav-number">1.5.1.</span> <span class="nav-text">1.法则</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-控制语句-control-statements"><span class="nav-number">1.5.2.</span> <span class="nav-text">2.控制语句(control statements)</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-6-自动分号插入-ASI"><span class="nav-number">1.6.</span> <span class="nav-text">6.6 自动分号插入(ASI)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-工作原理"><span class="nav-number">1.6.1.</span> <span class="nav-text">1.工作原理</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-意外触发"><span class="nav-number">1.6.2.</span> <span class="nav-text">2.意外触发</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-最佳做法"><span class="nav-number">1.6.3.</span> <span class="nav-text">3.最佳做法</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-7-严格模式-strict-与马虎-sloppy-模式"><span class="nav-number">1.7.</span> <span class="nav-text">6.7 严格模式(strict)与马虎(sloppy)模式</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-严格模式"><span class="nav-number">1.7.1.</span> <span class="nav-text">1.严格模式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-马虎模式的陷阱"><span class="nav-number">1.7.2.</span> <span class="nav-text">2.马虎模式的陷阱</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第十章-变量和赋值-variables-and-assignments"><span class="nav-number">2.</span> <span class="nav-text">第十章 变量和赋值(variables and assignments)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#10-1-let"><span class="nav-number">2.1.</span> <span class="nav-text">10.1 let</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10-2-const"><span class="nav-number">2.2.</span> <span class="nav-text">10.2 const</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-const和不变"><span class="nav-number">2.2.1.</span> <span class="nav-text">1.const和不变</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-const和循环"><span class="nav-number">2.2.2.</span> <span class="nav-text">2.const和循环</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-选择"><span class="nav-number">2.2.3.</span> <span class="nav-text">3. 选择</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10-3-一个变量的作用域"><span class="nav-number">2.3.</span> <span class="nav-text">10.3 一个变量的作用域</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-法则-1"><span class="nav-number">2.3.1.</span> <span class="nav-text">1.法则</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-阴影变量-Shadowing-variables"><span class="nav-number">2.3.2.</span> <span class="nav-text">2.阴影变量(Shadowing variables)</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10-4-术语-terminology-：静态-static-vs-动态-dynamic"><span class="nav-number">2.4.</span> <span class="nav-text">10.4 术语(terminology)：静态(static) vs 动态(dynamic)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-静态现象：变量的作用域"><span class="nav-number">2.4.1.</span> <span class="nav-text">1.静态现象：变量的作用域</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-动态现象：函数调用"><span class="nav-number">2.4.2.</span> <span class="nav-text">2.动态现象：函数调用</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10-5-全局变量和全局对象"><span class="nav-number">2.5.</span> <span class="nav-text">10.5 全局变量和全局对象</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-法则-2"><span class="nav-number">2.5.1.</span> <span class="nav-text">1.法则</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-种类"><span class="nav-number">2.5.2.</span> <span class="nav-text">2.种类</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10-6-声明：范围和激活"><span class="nav-number">2.6.</span> <span class="nav-text">10.6 声明：范围和激活</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10-7-闭包"><span class="nav-number">2.7.</span> <span class="nav-text">10.7 闭包</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第十二章-运算符-operators"><span class="nav-number">3.</span> <span class="nav-text">第十二章 运算符(operators)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#12-6-Javascript逻辑运算符“或”的应用"><span class="nav-number">3.1.</span> <span class="nav-text">12.6 Javascript逻辑运算符“或”的应用</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="site-author-image" itemprop="image" alt="shenjiaoyao"
+    src="/images/avatar.gif">
+  <p class="site-author-name" itemprop="name">shenjiaoyao</p>
+  <div class="site-description" itemprop="description">Nothing is impossible.</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">6</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="feed-link motion-element">
+    <a href="/atom.xml" rel="alternate">
+      <i class="fa fa-rss"></i>RSS
+    </a>
+  </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/shenjiayao-sjy" title="GitHub &amp;rarr; https:&#x2F;&#x2F;github.com&#x2F;shenjiayao-sjy"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:1107570617@qq.com" title="E-Mail &amp;rarr; mailto:1107570617@qq.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 2019 – 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">shenjiaoyao</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script color='8,8,8' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/pisces.js"></script>
+<script src="/js/next-boot.js"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+  
+   <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas>
+   <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script>
+   <script type="text/javascript" src="/js/src/fireworks.js"></script>
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"log":false});</script></body>
+</html>
