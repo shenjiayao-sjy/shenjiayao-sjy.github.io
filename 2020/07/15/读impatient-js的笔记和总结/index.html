@@ -59,8 +59,10 @@
 <meta property="og:site_name" content="YY’s Blog">
 <meta property="og:description" content="第六章 语法(syntax)6.1 概述1.注释(comments)(i)  &#x2F;&#x2F; 单个注释(ii) &#x2F;*">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2020-07-15T02:52:46.592Z">
+<meta property="og:image" content="http:&#x2F;&#x2F;github.com&#x2F;shenjiayao-sjy&#x2F;shenjiayao.github.io&#x2F;2020&#x2F;07&#x2F;15&#x2F;%E8%AF%BBimpatient-js%E7%9A%84%E7%AC%94%E8%AE%B0%E5%92%8C%E6%80%BB%E7%BB%93&#x2F;shenjiayao&#x2F;Downloads&#x2F;js%E7%B1%BB%E5%9E%8B%E5%B1%82%E6%AC%A1.png">
+<meta property="og:updated_time" content="2020-07-15T19:43:02.389Z">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;github.com&#x2F;shenjiayao-sjy&#x2F;shenjiayao.github.io&#x2F;2020&#x2F;07&#x2F;15&#x2F;%E8%AF%BBimpatient-js%E7%9A%84%E7%AC%94%E8%AE%B0%E5%92%8C%E6%80%BB%E7%BB%93&#x2F;shenjiayao&#x2F;Downloads&#x2F;js%E7%B1%BB%E5%9E%8B%E5%B1%82%E6%AC%A1.png">
 
 <link rel="canonical" href="http://github.com/shenjiayao-sjy/shenjiayao.github.io/2020/07/15/%E8%AF%BBimpatient-js%E7%9A%84%E7%AC%94%E8%AE%B0%E5%92%8C%E6%80%BB%E7%BB%93/">
 
@@ -202,10 +204,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2020-07-15 10:45:24 / Modified: 10:52:46" itemprop="dateCreated datePublished" datetime="2020-07-15T10:45:24+08:00">2020-07-15</time>
+              <time title="Created: 2020-07-15 10:45:24" itemprop="dateCreated datePublished" datetime="2020-07-15T10:45:24+08:00">2020-07-15</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-07-16 03:43:02" itemprop="dateModified" datetime="2020-07-16T03:43:02+08:00">2020-07-16</time>
+              </span>
 
           
 
@@ -362,6 +370,8 @@
 <p>变量的范围形成了一棵静态数。（通过静态嵌套）</p>
 <h5 id="2-动态现象：函数调用"><a href="#2-动态现象：函数调用" class="headerlink" title="2.动态现象：函数调用"></a>2.动态现象：函数调用</h5><p>函数是否被调用只能在运行时确定。</p>
 <p>函数调用形成一棵动态树（通过动态调用）。</p>
+</li>
+</ul>
 <h4 id="10-5-全局变量和全局对象"><a href="#10-5-全局变量和全局对象" class="headerlink" title="10.5 全局变量和全局对象"></a>10.5 全局变量和全局对象</h4><h5 id="1-法则-2"><a href="#1-法则-2" class="headerlink" title="1.法则"></a>1.法则</h5><p>JavaScript的变量范围是嵌套的。它们形成一棵树：</p>
 <ul>
 <li><p>最外部的作用域是树的根。</p>
@@ -369,23 +379,148 @@
 <li><p>直接包含在该范围中的范围是根的子级。</p>
 </li>
 </ul>
-<p>根也称为全局范围。在web浏览器中，一个直接位于该范围内的唯一位置是脚本的顶层。全局范围的变量称为全局变量，可在任何地方访问</p>
+<p>根也称为全局范围。在web浏览器中，一个直接位于该范围内的唯一位置是脚本的顶层。全局范围的变量称为全局变量，可在任何地方访问。</p>
 <h5 id="2-种类"><a href="#2-种类" class="headerlink" title="2.种类"></a>2.种类</h5><p>全局变量有两种：</p>
 <ul>
 <li>全局<strong>声明</strong>变量是普通变量。<ul>
 <li>只能在脚本的顶层通过<code>const</code>，<code>let</code>和<code>class</code>声明来创建它们。</li>
 </ul>
 </li>
-<li>全局<strong>对象</strong>变量存储在所谓的全局对象的<strong>属性</strong>中<ul>
+<li><strong>全局对象变量存储在所谓的全局对象的属性中</strong><ul>
 <li>它们通过<code>var</code>和函数声明在脚本的顶层创建。</li>
-<li>可以通过全局变量访问全局对象<code>globalThis</code>。它可用于创建，读取和删除全局对象变量。</li>
+<li>可以通过全局变量<code>globalThis</code>访问全局对象。它可用于创建，读取和删除全局对象变量。</li>
 <li>除此之外，全局对象变量的工作方式与普通变量类似。</li>
 </ul>
 </li>
 </ul>
-<h4 id="10-6-声明：范围和激活"><a href="#10-6-声明：范围和激活" class="headerlink" title="10.6 声明：范围和激活"></a>10.6 声明：范围和激活</h4><h4 id="10-7-闭包"><a href="#10-7-闭包" class="headerlink" title="10.7 闭包"></a>10.7 闭包</h4></li>
+<p>每个ECMAScript模块都有自己的范围，该范围包含在全局范围内。因此，存在于模块顶层的变量不是全局变量。</p>
+<h4 id="10-6-声明：范围-scope-和激活-activation"><a href="#10-6-声明：范围-scope-和激活-activation" class="headerlink" title="10.6 声明：范围(scope)和激活(activation)"></a>10.6 声明：范围(scope)和激活(activation)</h4><h5 id="1-声明的种类"><a href="#1-声明的种类" class="headerlink" title="1.声明的种类"></a>1.声明的种类</h5><ul>
+<li>范围：指已声明的实体可以被看到的范围，是一个静态特征。</li>
+<li>激活：指可以访问实体的时间，是一个动态特征。有些实体当我们进入它的范围时就可以直接被访问，而其它的必须等到执行到达它们的声明。</li>
 </ul>
-<h3 id="第十二章-运算符-operators"><a href="#第十二章-运算符-operators" class="headerlink" title="第十二章 运算符(operators)"></a>第十二章 运算符(operators)</h3><h4 id="12-6-Javascript逻辑运算符“或”的应用"><a href="#12-6-Javascript逻辑运算符“或”的应用" class="headerlink" title="12.6 Javascript逻辑运算符“或”的应用"></a>12.6 Javascript逻辑运算符“或”的应用</h4><p>或运算符可以被用来为一个新定义好的变量提供一个默认值:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Scope</th>
+<th>Activation</th>
+<th>Duplicates(同一作用域内重复)</th>
+<th>Global prop.</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>const</code></td>
+<td>Block</td>
+<td>decl. (TDZ)</td>
+<td><code>✘</code></td>
+<td><code>✘</code></td>
+</tr>
+<tr>
+<td><code>let</code></td>
+<td>Block</td>
+<td>decl. (TDZ)</td>
+<td><code>✘</code></td>
+<td><code>✘</code></td>
+</tr>
+<tr>
+<td><code>function</code></td>
+<td>Block (*)</td>
+<td>start</td>
+<td><code>✔</code></td>
+<td><code>✔</code></td>
+</tr>
+<tr>
+<td><code>class</code></td>
+<td>Block</td>
+<td>decl. (TDZ)</td>
+<td><code>✘</code></td>
+<td><code>✘</code></td>
+</tr>
+<tr>
+<td><code>import</code></td>
+<td>Module</td>
+<td>same as export</td>
+<td><code>✘</code></td>
+<td><code>✘</code></td>
+</tr>
+<tr>
+<td><code>var</code></td>
+<td>Function</td>
+<td>start, partially</td>
+<td><code>✔</code></td>
+<td><code>✔</code></td>
+</tr>
+</tbody></table>
+<h5 id="2-const-and-let-temporal-dead-zone"><a href="#2-const-and-let-temporal-dead-zone" class="headerlink" title="2.const and let: temporal dead zone"></a>2.const and let: temporal dead zone</h5><p>进入变量范围和执行变量声明之间的<em>时间</em>称为该变量的时间死区（TDZ）：</p>
+<ul>
+<li>在这段时间内，该变量被认为是未初始化的（好像它是一个特殊值）。</li>
+<li>如果访问未初始化的变量，则会得到一个<code>ReferenceError</code>。</li>
+<li>到达变量声明后，将变量设置为初始值设定项的值（通过分配符号指定）或<code>undefined</code>–如果没有初始值设定项。</li>
+</ul>
+<p>即使函数的声明位于变量的声明之前并使用该变量，我们也可以调用此函数。但是，我们必须等到变量的时间盲区结束。</p>
+<h5 id="3-函数的声明和提前激活"><a href="#3-函数的声明和提前激活" class="headerlink" title="3.函数的声明和提前激活"></a>3.函数的声明和提前激活</h5><p>进入函数范围时，无论函数声明在该范围内的什么位置，总是先执行函数声明。这使我们可以在声明函数之前调用它，即提前激活函数。</p>
+<p>如果通过<code>const</code>或<code>let</code>声明函数(表达式)，则不会提早激活它。</p>
+<p>注意：值为字符的变量不会被提前激活，类的声明不会提前激活（*）</p>
+<h5 id="4-var：部分提前激活"><a href="#4-var：部分提前激活" class="headerlink" title="4.var：部分提前激活"></a>4.var：部分提前激活</h5><p>以下代码演示了的效果<code>var</code>：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// Partial early activation:</span></span><br><span class="line">  assert.equal(x, <span class="literal">undefined</span>); <span class="comment">//与const和let不同</span></span><br><span class="line">  <span class="keyword">if</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">    <span class="keyword">var</span> x = <span class="number">123</span>;</span><br><span class="line">    <span class="comment">// The assignment is executed in place:</span></span><br><span class="line">    assert.equal(x, <span class="number">123</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// Scope is function, not block:</span></span><br><span class="line">  assert.equal(x, <span class="number">123</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="10-7-闭包"><a href="#10-7-闭包" class="headerlink" title="10.7 闭包"></a>10.7 闭包</h4><p>一个闭包是指一个函数加上与存在于它的“出生地”的变量的连接，这种连接能提供函数中自由变量的值。</p>
+<p>通过JavaScript中的闭包支持静态作用域。因此，每个函数都是一个闭包。</p>
+<p>例子：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createInc</span>(<span class="params">startValue</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="function">(<span class="params">step</span>) =&gt;</span> &#123; <span class="comment">// (A)</span></span><br><span class="line">    startValue += step;</span><br><span class="line">    <span class="keyword">return</span> startValue;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> inc = createInc(<span class="number">5</span>);</span><br><span class="line">assert.equal(inc(<span class="number">2</span>), <span class="number">7</span>);</span><br></pre></td></tr></table></figure>
+
+<h5 id="1-绑定-bound-变量和自由-free-变量"><a href="#1-绑定-bound-变量和自由-free-变量" class="headerlink" title="1.绑定(bound)变量和自由(free)变量"></a>1.绑定(bound)变量和自由(free)变量</h5><ul>
+<li><em>绑定变量</em>在范围内声明。它们是参数和局部变量。</li>
+<li><em>自由变量</em>在外部声明。它们也称为<em>非局部变量</em>。</li>
+</ul>
+<h5 id="2-用处"><a href="#2-用处" class="headerlink" title="2.用处"></a>2.用处</h5><ul>
+<li>对于初学者来说，它们只是静态作用域的实现。这样，它们为回调提供上下文数据。</li>
+<li>函数还可以使用它们来存储在函数调用之间保持不变的状态。</li>
+<li>它们可以为对象提供私有数据（通过文字或类产生）。</li>
+</ul>
+<h3 id="第十一章-值-values"><a href="#第十一章-值-values" class="headerlink" title="第十一章 值(values)"></a>第十一章 值(values)</h3><h4 id="11-1-JavaScript的类型层次"><a href="#11-1-JavaScript的类型层次" class="headerlink" title="11.1 JavaScript的类型层次"></a>11.1 JavaScript的类型层次</h4><p><img src="/shenjiayao-sjy/shenjiayao.github.io/2020/07/15/%E8%AF%BBimpatient-js%E7%9A%84%E7%AC%94%E8%AE%B0%E5%92%8C%E6%80%BB%E7%BB%93/shenjiayao/Downloads/js%E7%B1%BB%E5%9E%8B%E5%B1%82%E6%AC%A1.png" alt="一张图片"></p>
+<p>缺少错误的类，与原始类型相关联的类等等。</p>
+<p>可得javascript分为原始值和对象，该图也区分了对象和类<code>Object</code>的实例。每个Object的实例也是一个对象，但是反之不然。</p>
+<h4 id="11-2-语言规范的种类"><a href="#11-2-语言规范的种类" class="headerlink" title="11.2 语言规范的种类"></a>11.2 语言规范的种类</h4><ul>
+<li><p><code>undefined</code> 与唯一的元素 <code>undefined</code></p>
+</li>
+<li><p><code>null</code> 与唯一的元素 <code>null</code></p>
+</li>
+<li><p><code>boolean</code>与元素<code>false</code>和<code>true</code></p>
+</li>
+<li><p><code>number</code>所有数字的类型（例如<code>-123</code>，<code>3.141</code>）</p>
+</li>
+<li><p><code>bigint</code>所有大整数的类型（例如<code>-123n</code>）</p>
+</li>
+<li><p><code>string</code>所有字符串的类型（例如<code>&#39;abc&#39;</code>）</p>
+</li>
+<li><p><code>symbol</code>所有符号的类型（例如<code>Symbol(&#39;My Symbol&#39;)</code>）</p>
+</li>
+<li><p><code>object</code>所有对象的类型（与<code>Object</code>，类<code>Object</code>及其子类的所有实例的类型不同）</p>
+<p>注意：以上使用TypeScript的名称，不是规范的名称</p>
+</li>
+</ul>
+<h4 id="11-3-原始值-primitives-与对象-objects"><a href="#11-3-原始值-primitives-与对象-objects" class="headerlink" title="11.3 原始值(primitives)与对象(objects)"></a>11.3 原始值(primitives)与对象(objects)</h4><h5 id="1-定义"><a href="#1-定义" class="headerlink" title="1.定义"></a>1.定义</h5><ul>
+<li>原始值是种类<code>undefined</code>，<code>null</code>，<code>boolean</code>，<code>number</code>，<code>bigint</code>，<code>string</code>，<code>symbol</code>的元素。</li>
+<li>所有其他值都是<em>对象</em>。</li>
+</ul>
+<h5 id="2-对比"><a href="#2-对比" class="headerlink" title="2.对比"></a>2.对比</h5><ul>
+<li>原始值：是JavaScript中数据的原子构造块。<ul>
+<li><strong>它们通过值传递</strong>：将原始值分配给变量或传递给函数时，将复制它们的内容。</li>
+<li><strong>它们通过值进行比较</strong>：比较两个原始值时，将比较它们的<strong>内容</strong>。</li>
+<li>不可变：不能更改，添加或删除它的属性。</li>
+</ul>
+</li>
+<li>对象：是复合数据。<ul>
+<li>它们通过标识（作者的用语）传递：将对象分配给变量或传递给函数时，将复制它们的标识（认为是指针）。</li>
+<li>通过标识（作者的术语）对它们进行比较：比较两个对象时，将对它们的标识进行比较，内容一样不算相同，必须是同一个对象。</li>
+<li>创建方式有两种：对象字面量和数组字面量。</li>
+<li>默认可变：可以自由更改，添加和删除对象的属性。</li>
+</ul>
+</li>
+</ul>
+<p>相同点：都有属性（键值条目），且可以在相同的位置使用</p>
+<h4 id="11-4-运算符typeof和instanceof"><a href="#11-4-运算符typeof和instanceof" class="headerlink" title="11.4 运算符typeof和instanceof"></a>11.4 运算符typeof和instanceof</h4><h3 id="第十二章-运算符-operators"><a href="#第十二章-运算符-operators" class="headerlink" title="第十二章 运算符(operators)"></a>第十二章 运算符(operators)</h3><h4 id="12-6-Javascript逻辑运算符“或”的应用"><a href="#12-6-Javascript逻辑运算符“或”的应用" class="headerlink" title="12.6 Javascript逻辑运算符“或”的应用"></a>12.6 Javascript逻辑运算符“或”的应用</h4><p>或运算符可以被用来为一个新定义好的变量提供一个默认值:</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> bar = <span class="literal">false</span>,</span><br><span class="line">foobar = <span class="number">5</span>,</span><br><span class="line">foo = bar || foobar; <span class="comment">// foo = 5</span></span><br></pre></td></tr></table></figure>
 
 <p>在上面这个例子当中，只有当bar蕴涵假的时候，foobar才会将它自身的值传递给foo。</p>
@@ -454,7 +589,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#第六章-语法-syntax"><span class="nav-number">1.</span> <span class="nav-text">第六章 语法(syntax)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#6-1-概述"><span class="nav-number">1.1.</span> <span class="nav-text">6.1 概述</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-注释-comments"><span class="nav-number">1.1.1.</span> <span class="nav-text">1.注释(comments)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-布尔值-Booleans"><span class="nav-number">1.1.2.</span> <span class="nav-text">2.布尔值(Booleans)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-命名约定"><span class="nav-number">1.1.3.</span> <span class="nav-text">3.命名约定</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-2-标识符-identifiers"><span class="nav-number">1.2.</span> <span class="nav-text">6.2 标识符(identifiers)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-有效标识符-变量名等"><span class="nav-number">1.2.1.</span> <span class="nav-text">1.有效标识符(变量名等)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-保留字-reserved-words"><span class="nav-number">1.2.2.</span> <span class="nav-text">2.保留字(reserved words)</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-3-语句-statement-与表达式-expression"><span class="nav-number">1.3.</span> <span class="nav-text">6.3 语句(statement)与表达式(expression)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-语句"><span class="nav-number">1.3.1.</span> <span class="nav-text">1.语句</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-表达式"><span class="nav-number">1.3.2.</span> <span class="nav-text">2.表达式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-更多规范"><span class="nav-number">1.3.3.</span> <span class="nav-text">3.更多规范</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-4-不明确的语法"><span class="nav-number">1.4.</span> <span class="nav-text">6.4 不明确的语法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-函数声明和函数表达式"><span class="nav-number">1.4.1.</span> <span class="nav-text">1.函数声明和函数表达式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-对象字面量和块"><span class="nav-number">1.4.2.</span> <span class="nav-text">2.对象字面量和块</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-消除分歧"><span class="nav-number">1.4.3.</span> <span class="nav-text">3.消除分歧</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-5-分号-semicolons"><span class="nav-number">1.5.</span> <span class="nav-text">6.5 分号(semicolons)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-法则"><span class="nav-number">1.5.1.</span> <span class="nav-text">1.法则</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-控制语句-control-statements"><span class="nav-number">1.5.2.</span> <span class="nav-text">2.控制语句(control statements)</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-6-自动分号插入-ASI"><span class="nav-number">1.6.</span> <span class="nav-text">6.6 自动分号插入(ASI)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-工作原理"><span class="nav-number">1.6.1.</span> <span class="nav-text">1.工作原理</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-意外触发"><span class="nav-number">1.6.2.</span> <span class="nav-text">2.意外触发</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-最佳做法"><span class="nav-number">1.6.3.</span> <span class="nav-text">3.最佳做法</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-7-严格模式-strict-与马虎-sloppy-模式"><span class="nav-number">1.7.</span> <span class="nav-text">6.7 严格模式(strict)与马虎(sloppy)模式</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-严格模式"><span class="nav-number">1.7.1.</span> <span class="nav-text">1.严格模式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-马虎模式的陷阱"><span class="nav-number">1.7.2.</span> <span class="nav-text">2.马虎模式的陷阱</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第十章-变量和赋值-variables-and-assignments"><span class="nav-number">2.</span> <span class="nav-text">第十章 变量和赋值(variables and assignments)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#10-1-let"><span class="nav-number">2.1.</span> <span class="nav-text">10.1 let</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10-2-const"><span class="nav-number">2.2.</span> <span class="nav-text">10.2 const</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-const和不变"><span class="nav-number">2.2.1.</span> <span class="nav-text">1.const和不变</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-const和循环"><span class="nav-number">2.2.2.</span> <span class="nav-text">2.const和循环</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-选择"><span class="nav-number">2.2.3.</span> <span class="nav-text">3. 选择</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10-3-一个变量的作用域"><span class="nav-number">2.3.</span> <span class="nav-text">10.3 一个变量的作用域</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-法则-1"><span class="nav-number">2.3.1.</span> <span class="nav-text">1.法则</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-阴影变量-Shadowing-variables"><span class="nav-number">2.3.2.</span> <span class="nav-text">2.阴影变量(Shadowing variables)</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10-4-术语-terminology-：静态-static-vs-动态-dynamic"><span class="nav-number">2.4.</span> <span class="nav-text">10.4 术语(terminology)：静态(static) vs 动态(dynamic)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-静态现象：变量的作用域"><span class="nav-number">2.4.1.</span> <span class="nav-text">1.静态现象：变量的作用域</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-动态现象：函数调用"><span class="nav-number">2.4.2.</span> <span class="nav-text">2.动态现象：函数调用</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10-5-全局变量和全局对象"><span class="nav-number">2.5.</span> <span class="nav-text">10.5 全局变量和全局对象</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-法则-2"><span class="nav-number">2.5.1.</span> <span class="nav-text">1.法则</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-种类"><span class="nav-number">2.5.2.</span> <span class="nav-text">2.种类</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10-6-声明：范围和激活"><span class="nav-number">2.6.</span> <span class="nav-text">10.6 声明：范围和激活</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10-7-闭包"><span class="nav-number">2.7.</span> <span class="nav-text">10.7 闭包</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第十二章-运算符-operators"><span class="nav-number">3.</span> <span class="nav-text">第十二章 运算符(operators)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#12-6-Javascript逻辑运算符“或”的应用"><span class="nav-number">3.1.</span> <span class="nav-text">12.6 Javascript逻辑运算符“或”的应用</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#第六章-语法-syntax"><span class="nav-number">1.</span> <span class="nav-text">第六章 语法(syntax)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#6-1-概述"><span class="nav-number">1.1.</span> <span class="nav-text">6.1 概述</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-注释-comments"><span class="nav-number">1.1.1.</span> <span class="nav-text">1.注释(comments)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-布尔值-Booleans"><span class="nav-number">1.1.2.</span> <span class="nav-text">2.布尔值(Booleans)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-命名约定"><span class="nav-number">1.1.3.</span> <span class="nav-text">3.命名约定</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-2-标识符-identifiers"><span class="nav-number">1.2.</span> <span class="nav-text">6.2 标识符(identifiers)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-有效标识符-变量名等"><span class="nav-number">1.2.1.</span> <span class="nav-text">1.有效标识符(变量名等)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-保留字-reserved-words"><span class="nav-number">1.2.2.</span> <span class="nav-text">2.保留字(reserved words)</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-3-语句-statement-与表达式-expression"><span class="nav-number">1.3.</span> <span class="nav-text">6.3 语句(statement)与表达式(expression)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-语句"><span class="nav-number">1.3.1.</span> <span class="nav-text">1.语句</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-表达式"><span class="nav-number">1.3.2.</span> <span class="nav-text">2.表达式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-更多规范"><span class="nav-number">1.3.3.</span> <span class="nav-text">3.更多规范</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-4-不明确的语法"><span class="nav-number">1.4.</span> <span class="nav-text">6.4 不明确的语法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-函数声明和函数表达式"><span class="nav-number">1.4.1.</span> <span class="nav-text">1.函数声明和函数表达式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-对象字面量和块"><span class="nav-number">1.4.2.</span> <span class="nav-text">2.对象字面量和块</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-消除分歧"><span class="nav-number">1.4.3.</span> <span class="nav-text">3.消除分歧</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-5-分号-semicolons"><span class="nav-number">1.5.</span> <span class="nav-text">6.5 分号(semicolons)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-法则"><span class="nav-number">1.5.1.</span> <span class="nav-text">1.法则</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-控制语句-control-statements"><span class="nav-number">1.5.2.</span> <span class="nav-text">2.控制语句(control statements)</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-6-自动分号插入-ASI"><span class="nav-number">1.6.</span> <span class="nav-text">6.6 自动分号插入(ASI)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-工作原理"><span class="nav-number">1.6.1.</span> <span class="nav-text">1.工作原理</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-意外触发"><span class="nav-number">1.6.2.</span> <span class="nav-text">2.意外触发</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-最佳做法"><span class="nav-number">1.6.3.</span> <span class="nav-text">3.最佳做法</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-7-严格模式-strict-与马虎-sloppy-模式"><span class="nav-number">1.7.</span> <span class="nav-text">6.7 严格模式(strict)与马虎(sloppy)模式</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-严格模式"><span class="nav-number">1.7.1.</span> <span class="nav-text">1.严格模式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-马虎模式的陷阱"><span class="nav-number">1.7.2.</span> <span class="nav-text">2.马虎模式的陷阱</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第十章-变量和赋值-variables-and-assignments"><span class="nav-number">2.</span> <span class="nav-text">第十章 变量和赋值(variables and assignments)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#10-1-let"><span class="nav-number">2.1.</span> <span class="nav-text">10.1 let</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10-2-const"><span class="nav-number">2.2.</span> <span class="nav-text">10.2 const</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-const和不变"><span class="nav-number">2.2.1.</span> <span class="nav-text">1.const和不变</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-const和循环"><span class="nav-number">2.2.2.</span> <span class="nav-text">2.const和循环</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-选择"><span class="nav-number">2.2.3.</span> <span class="nav-text">3. 选择</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10-3-一个变量的作用域"><span class="nav-number">2.3.</span> <span class="nav-text">10.3 一个变量的作用域</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-法则-1"><span class="nav-number">2.3.1.</span> <span class="nav-text">1.法则</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-阴影变量-Shadowing-variables"><span class="nav-number">2.3.2.</span> <span class="nav-text">2.阴影变量(Shadowing variables)</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10-4-术语-terminology-：静态-static-vs-动态-dynamic"><span class="nav-number">2.4.</span> <span class="nav-text">10.4 术语(terminology)：静态(static) vs 动态(dynamic)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-静态现象：变量的作用域"><span class="nav-number">2.4.1.</span> <span class="nav-text">1.静态现象：变量的作用域</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-动态现象：函数调用"><span class="nav-number">2.4.2.</span> <span class="nav-text">2.动态现象：函数调用</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10-5-全局变量和全局对象"><span class="nav-number">2.5.</span> <span class="nav-text">10.5 全局变量和全局对象</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-法则-2"><span class="nav-number">2.5.1.</span> <span class="nav-text">1.法则</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-种类"><span class="nav-number">2.5.2.</span> <span class="nav-text">2.种类</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10-6-声明：范围-scope-和激活-activation"><span class="nav-number">2.6.</span> <span class="nav-text">10.6 声明：范围(scope)和激活(activation)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-声明的种类"><span class="nav-number">2.6.1.</span> <span class="nav-text">1.声明的种类</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-const-and-let-temporal-dead-zone"><span class="nav-number">2.6.2.</span> <span class="nav-text">2.const and let: temporal dead zone</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-函数的声明和提前激活"><span class="nav-number">2.6.3.</span> <span class="nav-text">3.函数的声明和提前激活</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-var：部分提前激活"><span class="nav-number">2.6.4.</span> <span class="nav-text">4.var：部分提前激活</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10-7-闭包"><span class="nav-number">2.7.</span> <span class="nav-text">10.7 闭包</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-绑定-bound-变量和自由-free-变量"><span class="nav-number">2.7.1.</span> <span class="nav-text">1.绑定(bound)变量和自由(free)变量</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-用处"><span class="nav-number">2.7.2.</span> <span class="nav-text">2.用处</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第十一章-值-values"><span class="nav-number">3.</span> <span class="nav-text">第十一章 值(values)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#11-1-JavaScript的类型层次"><span class="nav-number">3.1.</span> <span class="nav-text">11.1 JavaScript的类型层次</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#11-2-语言规范的种类"><span class="nav-number">3.2.</span> <span class="nav-text">11.2 语言规范的种类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#11-3-原始值-primitives-与对象-objects"><span class="nav-number">3.3.</span> <span class="nav-text">11.3 原始值(primitives)与对象(objects)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-定义"><span class="nav-number">3.3.1.</span> <span class="nav-text">1.定义</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-对比"><span class="nav-number">3.3.2.</span> <span class="nav-text">2.对比</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#11-4-运算符typeof和instanceof"><span class="nav-number">3.4.</span> <span class="nav-text">11.4 运算符typeof和instanceof</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第十二章-运算符-operators"><span class="nav-number">4.</span> <span class="nav-text">第十二章 运算符(operators)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#12-6-Javascript逻辑运算符“或”的应用"><span class="nav-number">4.1.</span> <span class="nav-text">12.6 Javascript逻辑运算符“或”的应用</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
