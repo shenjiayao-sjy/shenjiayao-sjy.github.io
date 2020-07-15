@@ -1153,8 +1153,8 @@ pre .javascript .function {
   max-width: 120px;
   padding: 2px;
 }
-.site-author-image: hover{
-    transform: all 2s;
+.site-author-image :hover{
+  transition: all 2s;
 }
 .site-author-name {
   color: #222;
