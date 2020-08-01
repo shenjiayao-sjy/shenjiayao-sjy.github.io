@@ -58,10 +58,10 @@
 <meta property="og:site_name" content="YY’s Blog">
 <meta property="og:description" content="暑假分享之前端this指向总结 使用JavaScript开发的时候，很多开发者会被this 的指向弄懵。关键是要记住最核心的一句话：哪个对象调用函数，函数里面的this指向哪个对象。">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="http:&#x2F;&#x2F;github.com&#x2F;shenjiayao-sjy&#x2F;shenjiayao.github.io&#x2F;2020&#x2F;08&#x2F;01&#x2F;%E6%9A%91%E5%81%87%E5%88%86%E4%BA%AB(%E4%B8%80)&#x2F;shenjiayao&#x2F;Downloads&#x2F;this%E8%A1%A8.png">
-<meta property="og:updated_time" content="2020-08-01T19:10:44.708Z">
+<meta property="og:image" content="http:&#x2F;&#x2F;github.com&#x2F;shenjiayao-sjy&#x2F;shenjiayao.github.io&#x2F;2020&#x2F;08&#x2F;01&#x2F;%E6%9A%91%E5%81%87%E5%88%86%E4%BA%AB(%E4%B8%80)&#x2F;shenjiayao&#x2F;Desktop&#x2F;shenjiayao-sjy.github.io&#x2F;source&#x2F;_posts&#x2F;%E6%9A%91%E5%81%87%E5%88%86%E4%BA%AB(%E4%B8%80)&#x2F;this%E8%A1%A8.png">
+<meta property="og:updated_time" content="2020-08-01T19:14:14.741Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http:&#x2F;&#x2F;github.com&#x2F;shenjiayao-sjy&#x2F;shenjiayao.github.io&#x2F;2020&#x2F;08&#x2F;01&#x2F;%E6%9A%91%E5%81%87%E5%88%86%E4%BA%AB(%E4%B8%80)&#x2F;shenjiayao&#x2F;Downloads&#x2F;this%E8%A1%A8.png">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;github.com&#x2F;shenjiayao-sjy&#x2F;shenjiayao.github.io&#x2F;2020&#x2F;08&#x2F;01&#x2F;%E6%9A%91%E5%81%87%E5%88%86%E4%BA%AB(%E4%B8%80)&#x2F;shenjiayao&#x2F;Desktop&#x2F;shenjiayao-sjy.github.io&#x2F;source&#x2F;_posts&#x2F;%E6%9A%91%E5%81%87%E5%88%86%E4%BA%AB(%E4%B8%80)&#x2F;this%E8%A1%A8.png">
 
 <link rel="canonical" href="http://github.com/shenjiayao-sjy/shenjiayao.github.io/2020/08/01/%E6%9A%91%E5%81%87%E5%88%86%E4%BA%AB(%E4%B8%80)/">
 
@@ -211,7 +211,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-08-02 03:10:44" itemprop="dateModified" datetime="2020-08-02T03:10:44+08:00">2020-08-02</time>
+                <time title="Modified: 2020-08-02 03:14:14" itemprop="dateModified" datetime="2020-08-02T03:14:14+08:00">2020-08-02</time>
               </span>
 
           
@@ -288,7 +288,7 @@
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj= &#123;</span><br><span class="line">    that : <span class="keyword">this</span>, <span class="comment">//默认绑定</span></span><br><span class="line">    bar : <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="keyword">this</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    baz : <span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>); </span><br><span class="line">    &#125; </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(obj.that);  <span class="comment">// window</span></span><br><span class="line">obj.bar()();            <span class="comment">// obj</span></span><br><span class="line">obj.baz();              <span class="comment">// window</span></span><br></pre></td></tr></table></figure>
 
 <p>其中obj当前的作用域是window，第一个this就是默认绑定到window，而用function包裹第一个箭头函数的目的就是为了将箭头函数绑定到当前的对象上，否则像第二个箭头函数默认绑定的父级作用域就是window。</p>
-<h3 id="4-总结图"><a href="#4-总结图" class="headerlink" title="4. 总结图"></a>4. 总结图</h3><p><img src="/shenjiayao-sjy/shenjiayao.github.io/2020/08/01/%E6%9A%91%E5%81%87%E5%88%86%E4%BA%AB(%E4%B8%80)/shenjiayao/Downloads/this%E8%A1%A8.png" alt="this表"></p>
+<h3 id="4-总结图"><a href="#4-总结图" class="headerlink" title="4. 总结图"></a>4. 总结图</h3><p><img src="/shenjiayao-sjy/shenjiayao.github.io/2020/08/01/%E6%9A%91%E5%81%87%E5%88%86%E4%BA%AB(%E4%B8%80)/shenjiayao/Desktop/shenjiayao-sjy.github.io/source/_posts/%E6%9A%91%E5%81%87%E5%88%86%E4%BA%AB(%E4%B8%80)/this%E8%A1%A8.png" alt="this表"></p>
 
     </div>
 
