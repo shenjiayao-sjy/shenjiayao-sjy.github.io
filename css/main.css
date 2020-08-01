@@ -1146,15 +1146,11 @@ pre .javascript .function {
 }
 .site-author-image {
   border: 1px solid #eee;
-  border-radius: 50%;
   display: block;
   height: auto;
   margin: 0 auto;
   max-width: 120px;
   padding: 2px;
-}
-.site-author-image :hover{
-  transition: all 2s;
 }
 .site-author-name {
   color: #222;
@@ -1185,7 +1181,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #73ffa8;
+  background: #2d5ca3;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
