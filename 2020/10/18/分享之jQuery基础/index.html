@@ -51,15 +51,15 @@
   };
 </script>
 
-  <meta name="description" content="一、jQuery介绍jQuery轻量级的JavaScript库，核心是JavaScript，兼容css和各种浏览器， 核心理念是写得少做得多。它 是目前最流行的 JS 框架。">
+  <meta name="description" content="一、jQuery介绍jQuery是轻量级的JavaScript库，它的核心是JavaScript，兼容css和各种浏览器， 并且核心理念是写得少做得多。它是目前最流行的 JS 框架，但jQuery的本质只是一个中间层，提供一套统一易用的DOM操作接口，消除浏览器之间的差异。">
 <meta name="keywords" content="jQuery">
 <meta property="og:type" content="article">
 <meta property="og:title" content="分享之jQuery基础">
 <meta property="og:url" content="http:&#x2F;&#x2F;github.com&#x2F;shenjiayao-sjy&#x2F;shenjiayao.github.io&#x2F;2020&#x2F;10&#x2F;18&#x2F;%E5%88%86%E4%BA%AB%E4%B9%8BjQuery%E5%9F%BA%E7%A1%80&#x2F;index.html">
 <meta property="og:site_name" content="YY’s Blog">
-<meta property="og:description" content="一、jQuery介绍jQuery轻量级的JavaScript库，核心是JavaScript，兼容css和各种浏览器， 核心理念是写得少做得多。它 是目前最流行的 JS 框架。">
+<meta property="og:description" content="一、jQuery介绍jQuery是轻量级的JavaScript库，它的核心是JavaScript，兼容css和各种浏览器， 并且核心理念是写得少做得多。它是目前最流行的 JS 框架，但jQuery的本质只是一个中间层，提供一套统一易用的DOM操作接口，消除浏览器之间的差异。">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2020-10-17T16:56:52.299Z">
+<meta property="og:updated_time" content="2020-10-17T17:33:14.975Z">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="http://github.com/shenjiayao-sjy/shenjiayao.github.io/2020/10/18/%E5%88%86%E4%BA%AB%E4%B9%8BjQuery%E5%9F%BA%E7%A1%80/">
@@ -204,7 +204,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2020-10-18 00:36:20 / Modified: 00:56:52" itemprop="dateCreated datePublished" datetime="2020-10-18T00:36:20+08:00">2020-10-18</time>
+              <time title="Created: 2020-10-18 00:36:20 / Modified: 01:33:14" itemprop="dateCreated datePublished" datetime="2020-10-18T00:36:20+08:00">2020-10-18</time>
             </span>
 
           
@@ -218,15 +218,54 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h3 id="一、jQuery介绍"><a href="#一、jQuery介绍" class="headerlink" title="一、jQuery介绍"></a>一、jQuery介绍</h3><p>jQuery轻量级的JavaScript库，核心是JavaScript，兼容css和各种浏览器， 核心理念是写得少做得多。它 是目前最流行的 JS 框架。</p><a id="more"></a>
+        <h3 id="一、jQuery介绍"><a href="#一、jQuery介绍" class="headerlink" title="一、jQuery介绍"></a>一、jQuery介绍</h3><p>jQuery是轻量级的JavaScript库，它的核心是JavaScript，兼容css和各种浏览器， 并且核心理念是写得少做得多。它是目前最流行的 JS 框架，但jQuery的本质只是一个中间层，提供一套统一易用的DOM操作接口，消除浏览器之间的差异。</p><a id="more"></a>
 <h3 id="二、操作方式"><a href="#二、操作方式" class="headerlink" title="二、操作方式"></a>二、操作方式</h3><p>  JQuery加载页面的三种方法：</p>
 <ol>
 <li>$(document).ready(function(){});</li>
 <li>$(function(){});</li>
 <li>jQuery(function($){});</li>
 </ol>
-<h3 id="三、jQuery对象与DOM对象"><a href="#三、jQuery对象与DOM对象" class="headerlink" title="三、jQuery对象与DOM对象"></a>三、jQuery对象与DOM对象</h3><h4 id="1-区分jQuery对象与DOM对象"><a href="#1-区分jQuery对象与DOM对象" class="headerlink" title="1.区分jQuery对象与DOM对象"></a>1.区分jQuery对象与DOM对象</h4><p>首先，我们要清楚，jQuery对象与DOM对象是不一样的。举一个🌰：</p>
-<h4 id="2-jQuery对象转化成DOM对象"><a href="#2-jQuery对象转化成DOM对象" class="headerlink" title="2.jQuery对象转化成DOM对象"></a>2.jQuery对象转化成DOM对象</h4><h4 id="3-DOM对象转化成jQuery对象"><a href="#3-DOM对象转化成jQuery对象" class="headerlink" title="3.DOM对象转化成jQuery对象"></a>3.DOM对象转化成jQuery对象</h4>
+<h3 id="三、jQuery对象与DOM对象"><a href="#三、jQuery对象与DOM对象" class="headerlink" title="三、jQuery对象与DOM对象"></a>三、jQuery对象与DOM对象</h3><h4 id="1-区分jQuery对象与DOM对象"><a href="#1-区分jQuery对象与DOM对象" class="headerlink" title="1.区分jQuery对象与DOM对象"></a>1.区分jQuery对象与DOM对象</h4><p>首先，我们要清楚，jQuery对象与DOM对象是不一样的。jQuery对象是包装DOM对象后产生的，但是两者却不能混用，DOM对象才能使用DOM方法，jQuery对象才能使用jQuery方法。举一个🌰：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;p id=”ijQuery”&gt;&lt;/p&gt;</span><br></pre></td></tr></table></figure>
+
+<p>我们要获取页面上这个id为ijQuery的p元素，然后给这个文本节点增加一段文字：“让我们一起学习jQuery吧！”，并且让文字颜色变成红色。</p>
+<p>通过标准JavaScript处理后的代码为：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> p = <span class="built_in">document</span>.getElementById(<span class="string">'ijQuery'</span>);</span><br><span class="line">p.innerHTML = <span class="string">'让我们一起学习jQuery吧！'</span>;</span><br><span class="line">p.style.color = <span class="string">'red'</span>;</span><br></pre></td></tr></table></figure>
+
+<p>通过原生DOM模型提供的document.getElementById(“ijQuery”) 方法获取的DOM元素就是一个DOM对象，再通过innerHTML与style属性处理文本与颜色。</p>
+<p>然而，经过jQuery处理后的代码为:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> $p = $(<span class="string">'#ijQuery'</span>);</span><br><span class="line">$p.html(<span class="string">'让我们一起学习jQuery吧！'</span>).css(<span class="string">'color'</span>,<span class="string">'red'</span>);</span><br></pre></td></tr></table></figure>
+
+<p> 通过$(‘#ijQuery’)方法会得到一个$p的jQuery对象，$p是一个类数组对象。这个对象里面包含了DOM对象的信息，然后封装了很多操作方法，调用自己的方法html与css，得到的效果与标准的JavaScript处理结果是一致的,但明显更加的简便。</p>
+<p>总结：通过jQuery处理DOM的操作，可以让开发者更专注业务逻辑的开发，而不需要我们具体知道哪个DOM节点有那些方法，也不需要关心不同浏览器的兼容性问题，我们通过jQuery提供的API进行开发，代码也会更加精短。</p>
+<h4 id="2-jQuery对象转化成DOM对象"><a href="#2-jQuery对象转化成DOM对象" class="headerlink" title="2.jQuery对象转化成DOM对象"></a>2.jQuery对象转化成DOM对象</h4><p>前言： jQuery库本质上还是JavaScript代码，它只是对JavaScript语言进行包装处理，为的是提供更好更方便快捷的DOM处理与开发中经常使用的功能。我们使用jQuery的同时也能混合JavaScript原生代码一起使用。</p>
+<p>在很多场景中，我们需要jQuery与DOM能够相互的转换，它们都可以操作DOM。</p>
+<p>jQuery是一个类数组对象，而DOM对象就是一个单独的DOM元素。</p>
+<p>(i) 第一种方法: <strong>利用数组下标的方式读取到jQuery中的DOM对象</strong></p>
+<p>HTML代码如下：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span>元素一<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span>元素二<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span>元素三<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>JavaScript代码如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> $div = $(<span class="string">'div'</span>) <span class="comment">//创建jQuery对象</span></span><br><span class="line"><span class="keyword">var</span> div = $div[<span class="number">0</span>] <span class="comment">//转化成DOM对象</span></span><br><span class="line">div.style.color = <span class="string">'red'</span> <span class="comment">//操作dom对象的属性</span></span><br></pre></td></tr></table></figure>
+
+<p>用jQuery找到所有的div元素，因为jQuery对象也是一个数组结构，可以通过数组下标索引找到第一个div元素，通过返回的div对象，调用它的style属性修改第一个div元素的颜色。</p>
+<p><strong>注意</strong>：数组的索引是从0开始的，也就是第一个元素下标是0。</p>
+<p>(ii) 第二种方法：<strong>通过jQuery自带的get()方法</strong></p>
+<p>jQuery对象自身提供一个.get() 方法允许我们直接访问jQuery对象中相关的DOM节点，get方法中提供一个元素的索引：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var $div = $(&apos;div&apos;) //创建jQuery对象</span><br><span class="line">var div = $div.get(0) //通过get方法，转化成DOM对象</span><br><span class="line">div.style.color = &apos;red&apos; //操作dom对象的属性</span><br></pre></td></tr></table></figure>
+
+<p>其实get方法就是利用的第一种方式处理的，只是包装成一个get让开发者更直接方便的使用。</p>
+<h4 id="3-DOM对象转化成jQuery对象"><a href="#3-DOM对象转化成jQuery对象" class="headerlink" title="3.DOM对象转化成jQuery对象"></a>3.DOM对象转化成jQuery对象</h4><p>相比较jQuery转化成DOM，开发中更多的情况是把一个dom对象加工成jQuery对象。$(参数)是一个多功能的方法，通过传递不同的参数而产生不同的作用。</p>
+<p>如果传递给$(DOM)函数的参数是一个DOM对象，jQuery方法会把这个DOM对象给包装成一个新的jQuery对象.</p>
+<p>通过$(dom)方法将普通的dom对象加工成jQuery对象之后，我们就可以调用jQuery的方法了。</p>
+<p>HTML代码如下：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span>元素一<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span>元素二<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span>元素三<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>JavaScript代码如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> div = <span class="built_in">document</span>.getElementsByTagName(<span class="string">'div'</span>); <span class="comment">//创建dom对象</span></span><br><span class="line"><span class="keyword">var</span> $div = $(div); <span class="comment">//创建jQuery对象</span></span><br><span class="line"><span class="keyword">var</span> $first = $div.first(); <span class="comment">//找到第一个div元素</span></span><br><span class="line">$first.css(<span class="string">'color'</span>, <span class="string">'red'</span>); <span class="comment">//给第一个元素设置颜色</span></span><br></pre></td></tr></table></figure>
+
+<p> 通过getElementsByTagName获取到所有div节点的元素，结果是一个dom合集对象，不过这个对象是一个数组合集，有3个div元素，再通过$(div)方法转化成jQuery对象，最后通过调用jQuery对象中的first与css方法查找第一个元素并且改变其颜色。</p>
+
     </div>
 
     
