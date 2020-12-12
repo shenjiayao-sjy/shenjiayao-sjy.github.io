@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <link rel="alternate" href="/atom.xml" title="YY’s Blog" type="application/atom+xml">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.5.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":true,"show_result":true,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: 'Copy',
+      copy_success: 'Copied',
+      copy_failure: 'Copy failed'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="在多人合作开发的项目中，很容易出现代码风格不同的情况，这对项目的协作质量产生较大的影响。此时，我们可以借助eslint规则和prettier的自动格式化来提高协作效率和生产力。此篇分享用于以CAD为脚手架进行开发的应用。">
+<meta name="keywords" content="eslint prettier">
+<meta property="og:type" content="article">
+<meta property="og:title" content="分享之编辑器设置">
+<meta property="og:url" content="http:&#x2F;&#x2F;github.com&#x2F;shenjiayao-sjy&#x2F;shenjiayao.github.io&#x2F;2020&#x2F;12&#x2F;10&#x2F;%E5%88%86%E4%BA%AB%E4%B9%8B%E7%BC%96%E8%BE%91%E5%99%A8%E8%AE%BE%E7%BD%AE&#x2F;index.html">
+<meta property="og:site_name" content="YY’s Blog">
+<meta property="og:description" content="在多人合作开发的项目中，很容易出现代码风格不同的情况，这对项目的协作质量产生较大的影响。此时，我们可以借助eslint规则和prettier的自动格式化来提高协作效率和生产力。此篇分享用于以CAD为脚手架进行开发的应用。">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2020-12-12T04:50:39.238Z">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://github.com/shenjiayao-sjy/shenjiayao.github.io/2020/12/10/%E5%88%86%E4%BA%AB%E4%B9%8B%E7%BC%96%E8%BE%91%E5%99%A8%E8%AE%BE%E7%BD%AE/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>分享之编辑器设置 | YY’s Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">YY’s Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tag"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
+    <link itemprop="mainEntityOfPage" href="http://github.com/shenjiayao-sjy/shenjiayao.github.io/2020/12/10/%E5%88%86%E4%BA%AB%E4%B9%8B%E7%BC%96%E8%BE%91%E5%99%A8%E8%AE%BE%E7%BD%AE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="shenjiaoyao">
+      <meta itemprop="description" content="Nothing is impossible.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YY’s Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          分享之编辑器设置
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-12-10 11:15:12" itemprop="dateCreated datePublished" datetime="2020-12-10T11:15:12+08:00">2020-12-10</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-12-12 12:50:39" itemprop="dateModified" datetime="2020-12-12T12:50:39+08:00">2020-12-12</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <blockquote>
+<p>在多人合作开发的项目中，很容易出现代码风格不同的情况，这对项目的协作质量产生较大的影响。此时，我们可以借助eslint规则和prettier的自动格式化来提高协作效率和生产力。此篇分享用于以CAD为脚手架进行开发的应用。</p>
+</blockquote><a id="more"></a>
+<h3 id="1-拓展或替换默认的ESLint配置"><a href="#1-拓展或替换默认的ESLint配置" class="headerlink" title="1.拓展或替换默认的ESLint配置"></a>1.拓展或替换默认的ESLint配置</h3><p>我们可以拓展基础的ESLint配置，或者如果我们需要的话可以完全替换它。下面有一个🌰：</p>
+<p>首先输入代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">yarn add eslint-config-airbnb eslint-config-prettier --dev</span><br><span class="line">// 或者用npm</span><br><span class="line">npm install --dev eslint-config-airbnb eslint-config-prettier</span><br></pre></td></tr></table></figure>
+
+<p>然后在package.json里面进行修改：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#123;<span class="string">"eslintConfig"</span>: &#123;</span><br><span class="line">   <span class="string">"extends"</span>: [</span><br><span class="line">     <span class="string">"airbnb"</span>, <span class="comment">//最流行的eslint规则 更严格</span></span><br><span class="line">     <span class="string">"prettier"</span>, </span><br><span class="line">   ],</span><br><span class="line">   <span class="string">"rules"</span>: &#123;</span><br><span class="line">     <span class="string">"react/prop-types"</span>: <span class="number">0</span></span><br><span class="line">   &#125;</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在这个例子中，基础配置被一个共享的ESLint配置所拓展了，因此设置了一个适用于所有JavaScript和TypeScript文件的新规则。</p>
+<p>有几件事要记住：</p>
+<ol>
+<li>强烈建议扩展基本配置，因为删除它可能会导致难以发现的问题</li>
+<li>任何设置为<code>&quot;error&quot;</code>的规则都将阻止项目的构建</li>
+</ol>
+<h3 id="2-代码自动格式化"><a href="#2-代码自动格式化" class="headerlink" title="2.代码自动格式化"></a>2.代码自动格式化</h3><p>Prettier是一个代码格式化程序，支持JavaScript，CSS和JSON。使用Prettier，可以自动格式化编写的代码，以确保项目中的代码样式一致。</p>
+<p>要在git中进行提交时格式化代码，我们需要安装以下依赖项：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save husky lint-staged prettier</span><br></pre></td></tr></table></figure>
+
+<p>或者使用<code>yarn</code>：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn add husky lint-staged prettier</span><br></pre></td></tr></table></figure>
+
+<p>其中</p>
+<ul>
+<li><code>husky</code>  使有可能像npm脚本一样使用git hooks。</li>
+<li><code>lint-staged</code>  允许我们在git中的暂存文件上运行脚本。</li>
+<li><code>prettier</code>  是我们将在提交之前运行的JavaScript格式化程序。</li>
+</ul>
+<p>git hook是指那些在Git执行特定事件后触发运行的脚本，是定制的脚本程序，可以按照运行环境分为两类：本地Hooks与服务端Hooks。</p>
+<p>本地Hook又分为三类：commit hooks，e-mail hooks和其他。我们可以配置commit hook让每次提交之前都跑prettier做自动格式化。</p>
+<p>然后在package.json文件进行修改，确保每个文件的格式正确：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 添加husky</span></span><br><span class="line">+  "husky": &#123;</span><br><span class="line">+    "hooks": &#123;</span><br><span class="line">+      "pre-commit": "lint-staged"</span><br><span class="line">+    &#125;</span><br><span class="line">+  &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  "dependencies": &#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">  &#125;,</span><br><span class="line"><span class="comment">// 添加一个'lint-staged'字段</span></span><br><span class="line">+ "lint-staged": &#123;</span><br><span class="line">+   "src/**/*.&#123;js,jsx,ts,tsx,json,css,scss,md&#125;": [</span><br><span class="line">+     "prettier --write"</span><br><span class="line">+   ]</span><br><span class="line">+ &#125;,</span><br><span class="line">  "scripts": &#123;</span><br></pre></td></tr></table></figure>
+
+<p>现在，无论何时提交，Prettier都会自动格式化更改的文件。</p>
+<p>其中，pre-commit属于commit hooks，一共有四个，均由git commit命令触发调用，按照一次发生的顺序分别是：<br> pre-commit<br> prepare-commit-msg<br> commit-msg<br> post-commit</p>
+<p>其中，pre-commit是最先触发运行的脚本。在提交一个commit之前，该hook有能力做许多工作，比如检查待提交东西的快照，以确保这份提交中没有缺少什么东西、文件名是否符合规范、是否对这份提交进行了测试、代码风格是否符合团队要求等等。 这个脚本可以通过传递–no-verify参数而禁用，如果脚本运行失败（返回非零值），git提交就会被终止。</p>
+<p> prepare-commit-msg脚本会在默认的提交信息准备完成后但编辑器尚未启动之前运行。 这个脚本的作用是用来编辑commit的默认提交说明。 用的机会不是太多，主要是用于能自动生成commit message的情况。 不会因为–no-verify参数而禁用，如果脚本运行失败（返回非零值），git提交就会被终止。</p>
+<p>commit-msg脚本包含一个参数，用来规定提交说明文件的路径。 该脚本可以用来验证提交说明的规范性，如果作者写的提交说明不符合指定路径文件中的规范，提交就会被终止。 该脚本可以通过传递–no-verify参数而禁用，如果脚本运行失败（返回非零值），git提交就会被终止。</p>
+<p> post-commit脚本发生在整个提交过程完成之后。这个脚本不包含任何参数，也不会影响commit的运行结果，可以用于发送new commit通知。</p>
+<h3 id="3-在编辑器中规范代码"><a href="#3-在编辑器中规范代码" class="headerlink" title="3.在编辑器中规范代码"></a>3.在编辑器中规范代码</h3><p>以Visual Studio Code为🌰：</p>
+<p>第一种方法是专门用于CRA脚手架的，需要安装最新版本的<a href="https://code.visualstudio.com/" target="_blank" rel="noopener">VS Code</a>和VS Code <a href="https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome" target="_blank" rel="noopener">Chrome调试器扩展</a>，然后将下面的块添加到<code>launch.json</code>文件中，并将其放在<code>.vscode</code>应用程序根目录下的文件夹中。</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"version"</span>: <span class="string">"0.2.0"</span>,</span><br><span class="line">  <span class="attr">"configurations"</span>: [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">"name"</span>: <span class="string">"Chrome"</span>,</span><br><span class="line">      <span class="attr">"type"</span>: <span class="string">"chrome"</span>,</span><br><span class="line">      <span class="attr">"request"</span>: <span class="string">"launch"</span>,</span><br><span class="line">      <span class="attr">"url"</span>: <span class="string">"http://localhost:3000"</span>,</span><br><span class="line">      <span class="attr">"webRoot"</span>: <span class="string">"$&#123;workspaceFolder&#125;/src"</span>,</span><br><span class="line">      <span class="attr">"sourceMapPathOverrides"</span>: &#123;</span><br><span class="line">        <span class="attr">"webpack:///src/*"</span>: <span class="string">"$&#123;webRoot&#125;/*"</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>通过运行<code>npm start</code>来启动应用程序，并通过按<code>F5</code>或单击绿色的调试图标来开始在VS Code中进行调试。</p>
+<p>第二种方法是通过下载Visual Studio Code中的拓展应用Prettier - Code formatter，在编辑器中实现自动代码格式化。只需在写代码时运动快捷键进行自动格式化，提升代码美观度。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/eslint-prettier/" rel="tag"><i class="fa fa-tag"></i> eslint prettier</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+                <a href="/2020/10/18/%E5%88%86%E4%BA%AB%E4%B9%8BjQuery%E5%9F%BA%E7%A1%80/" rel="next" title="分享之jQuery基础">
+                  <i class="fa fa-chevron-left"></i> 分享之jQuery基础
+                </a>
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+                <a href="/2020/12/12/%E5%88%86%E4%BA%AB%E4%B9%8Bfullpage-js/" rel="prev" title="分享之fullpage">
+                  分享之fullpage <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-拓展或替换默认的ESLint配置"><span class="nav-number">1.</span> <span class="nav-text">1.拓展或替换默认的ESLint配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-代码自动格式化"><span class="nav-number">2.</span> <span class="nav-text">2.代码自动格式化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-在编辑器中规范代码"><span class="nav-number">3.</span> <span class="nav-text">3.在编辑器中规范代码</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="site-author-image" itemprop="image" alt="shenjiaoyao"
+    src="/images/avatar.gif">
+  <p class="site-author-name" itemprop="name">shenjiaoyao</p>
+  <div class="site-description" itemprop="description">Nothing is impossible.</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">12</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="feed-link motion-element">
+    <a href="/atom.xml" rel="alternate">
+      <i class="fa fa-rss"></i>RSS
+    </a>
+  </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/shenjiayao-sjy" title="GitHub &amp;rarr; https:&#x2F;&#x2F;github.com&#x2F;shenjiayao-sjy"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:1107570617@qq.com" title="E-Mail &amp;rarr; mailto:1107570617@qq.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 2019 – 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">shenjiaoyao</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script color='8,8,8' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/pisces.js"></script>
+<script src="/js/next-boot.js"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+  
+   <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas>
+   <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script>
+   <script type="text/javascript" src="/js/src/fireworks.js"></script>
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"log":false});</script></body>
+</html>

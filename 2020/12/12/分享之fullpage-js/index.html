@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <link rel="alternate" href="/atom.xml" title="YY’s Blog" type="application/atom+xml">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.5.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":true,"show_result":true,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: 'Copy',
+      copy_success: 'Copied',
+      copy_failure: 'Copy failed'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="这段时间一直在进行年终项目的开发，其中运用了react-fullpage来开发h5。这个分享我就讲一下如何通过fullpage创建全屏滚动网站。">
+<meta name="keywords" content="javascript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="分享之fullpage">
+<meta property="og:url" content="http:&#x2F;&#x2F;github.com&#x2F;shenjiayao-sjy&#x2F;shenjiayao.github.io&#x2F;2020&#x2F;12&#x2F;12&#x2F;%E5%88%86%E4%BA%AB%E4%B9%8Bfullpage-js&#x2F;index.html">
+<meta property="og:site_name" content="YY’s Blog">
+<meta property="og:description" content="这段时间一直在进行年终项目的开发，其中运用了react-fullpage来开发h5。这个分享我就讲一下如何通过fullpage创建全屏滚动网站。">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2020-12-12T10:51:18.993Z">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://github.com/shenjiayao-sjy/shenjiayao.github.io/2020/12/12/%E5%88%86%E4%BA%AB%E4%B9%8Bfullpage-js/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>分享之fullpage | YY’s Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">YY’s Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tag"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
+    <link itemprop="mainEntityOfPage" href="http://github.com/shenjiayao-sjy/shenjiayao.github.io/2020/12/12/%E5%88%86%E4%BA%AB%E4%B9%8Bfullpage-js/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="shenjiaoyao">
+      <meta itemprop="description" content="Nothing is impossible.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YY’s Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          分享之fullpage
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-12-12 02:02:04 / Modified: 18:51:18" itemprop="dateCreated datePublished" datetime="2020-12-12T02:02:04+08:00">2020-12-12</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <blockquote>
+<p>这段时间一直在进行年终项目的开发，其中运用了react-fullpage来开发h5。这个分享我就讲一下如何通过fullpage创建全屏滚动网站。</p>
+</blockquote><a id="more"></a>
+<h3 id="1-介绍"><a href="#1-介绍" class="headerlink" title="1.介绍"></a>1.介绍</h3><p>fullpage是一个npm包，通过调用可轻易创建全屏滚动网站(也称为单页网站)。 它可以创建全屏滚动网站，同时也可以在网站中添加横向滚动条。</p>
+<p>一个🌰：<a href="https://alvarotrigo.com/fullPage/zh/#page1" target="_blank" rel="noopener">fullpage</a></p>
+<p>而react-fullpage就是通过CRA脚手架，将fullpage.js库包装在React中。</p>
+<p>一个🌰：<a href="https://alvarotrigo.com/react-fullpage/#page1" target="_blank" rel="noopener">react-fullpage</a></p>
+<h3 id="2-用法"><a href="#2-用法" class="headerlink" title="2.用法"></a>2.用法</h3><p>首先通过create-react-app创建框架，然后安装react-fullpage:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 使用 npm 安装</span><br><span class="line">npm install @fullpage/react-fullpage</span><br></pre></td></tr></table></figure>
+
+<p>再在编辑器中的index.html和index.js中进行修改：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// 这是index.html  </span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"react-root"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span>   //将id改为react-root</span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>然后在index.js入口进行修改：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">import React from &apos;react&apos;;</span><br><span class="line">import ReactDOM from &apos;react-dom&apos;;</span><br><span class="line">import ReactFullpage from &apos;@fullpage/react-fullpage&apos;; //调用react-fullpage包</span><br><span class="line"></span><br><span class="line">const Fullpage = () =&gt; &#123;</span><br><span class="line">  const [currentIndex, setCurrentIndex] = useState(0);</span><br><span class="line"></span><br><span class="line">  useEffect(() =&gt; &#123;</span><br><span class="line">    Fetch(&quot;data&quot;, &quot;GET&quot;).then();</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  return (</span><br><span class="line">    &lt;ReactFullpage</span><br><span class="line">      onLeave=&#123;(origin, destination) =&gt; &#123;</span><br><span class="line">        setCurrentIndex(destination.index);</span><br><span class="line">      &#125;&#125;</span><br><span class="line">      // fullpage option s</span><br><span class="line">      scrollingSpeed=&#123;1000&#125;</span><br><span class="line">      sectionsColor=&#123;[]&#125;</span><br><span class="line"></span><br><span class="line">      render=&#123;(&#123; fullpageApi &#125;) =&gt; &#123;</span><br><span class="line">        const moveToNext = () =&gt; &#123;</span><br><span class="line">          fullpageApi.moveSectionDown();</span><br><span class="line">        &#125;;</span><br><span class="line">        return (</span><br><span class="line">          &lt;ReactFullpage.Wrapper&gt;</span><br><span class="line">            &lt;div className=&quot;section&quot;&gt;</span><br><span class="line">              &lt;p moveToNext=&#123;moveToNext&#125; &gt;Some sections&lt;/p&gt;</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">            &lt;div className=&quot;section&quot;&gt;</span><br><span class="line">              &lt;p&gt;Some sections&lt;/p&gt;</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">          &lt;/ReactFullpage.Wrapper&gt;</span><br><span class="line">        );</span><br><span class="line">      &#125;&#125;</span><br><span class="line">    /&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">ReactDOM.render(&lt;Fullpage /&gt;, document.getElementById(&apos;react-root&apos;));</span><br></pre></td></tr></table></figure>
+
+<p>可以看到所有内容被封装在一个ReactFullpage.Wrapper组件中，其中每个section都是一个滑动页。</p>
+<p>如果要在代码段中创建横向滑块，每个滑动页将默认定义为包含 <code>slide</code> 类的元素，如以下代码：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"section"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"slide"</span>&gt;</span> slide 1 <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"slide"</span>&gt;</span> slide 2 <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"slide"</span>&gt;</span> slide 3 <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"slide"</span>&gt;</span> slide 4 <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>其中，在render之前的部分是各种功能选项，我们只需要进行调用就可以实现某种效果。如<code>scrollingSpeed = {1000}</code>是指滚动速度为一千毫秒,<code>sectionsColor={[]}</code>可以设置每个滑动页面的颜色。</p>
+<p>然后，这个库里还有很多方法可以调用。如上面的<code>moveSectionDown()</code>表示向下滚动一个 section。还有一些回调函数，如上例中的<code>onLeave (origin, destination, direction)</code>, 一旦用户离开 section ，过渡到新 section ，就会触发此回调。 返回 “false” 将在移动发生之前取消移动。</p>
+<p>其参数：</p>
+<ul>
+<li><code>origin</code>:  (Object) 前置 section</li>
+<li><code>destination</code>:  (Object) 目标 section。</li>
+<li><code>direction</code>:  (String)  它将根据滚动方向 <code>up</code> 或 <code>down</code> 取值。</li>
+</ul>
+<h3 id="3-加载速度"><a href="#3-加载速度" class="headerlink" title="3.加载速度"></a>3.加载速度</h3><h4 id="懒加载"><a href="#懒加载" class="headerlink" title="懒加载"></a>懒加载</h4><p> fullPage.js 提供了一种延迟加载图像、视频和音频元素的方式，这样它们不会减缓网站的加载速度，也不会浪费数据传输。 当使用懒加载时，所有这些元素只有在进入视口时才会加载。 要启用懒加载，您只需将 <code>src</code> 属性更改为 <code>data-src</code> ，如下所示：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;img data-src=<span class="string">"image.png"</span>&gt;</span><br><span class="line">&lt;video&gt;</span><br><span class="line">	&lt;source data-src=<span class="string">"video.webm"</span> type=<span class="string">"video/webm"</span> /&gt;</span><br><span class="line">	&lt;source data-src=<span class="string">"video.mp4"</span> type=<span class="string">"video/mp4"</span> /&gt;</span><br><span class="line">&lt;<span class="regexp">/video&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="压缩图片"><a href="#压缩图片" class="headerlink" title="压缩图片"></a>压缩图片</h4><p>网站或者app中的图片太大时会影响加载速度，这时需要通过工具进行压缩。推荐：<a href="http://www.secaibi.com/tools/" target="_blank" rel="noopener">色彩笔</a></p>
+<p>这是一个免费的在线图片压缩小工具, 可以非常方便得将PNG/GIF/JPG图片大小优化到极限，为移动设备（如：手机平版）访问节约数据流量，提高访问速度。</p>
+<h3 id="4-拓展"><a href="#4-拓展" class="headerlink" title="4.拓展"></a>4.拓展</h3><p>以此项目为例，每一个滑动页面都有一个父选择器.section，此时整个页面所有的css样式都在这一个父选择器之下，单用css写会使代码比较繁琐和冗余。因此，可以选择使用sass。</p>
+<p>Sass 是一款强化 CSS 的辅助工具，它在 CSS 语法的基础上增加了变量 (variables)、嵌套 (nested rules)、混合 (mixins)、导入 (inline imports) 等高级功能，并且完全兼容css3。</p>
+<p>它有两种语法格式，首先是 SCSS (Sassy CSS) ，这种格式仅在 CSS3 语法的基础上进行拓展，所有 CSS3 语法在 SCSS 中都是通用的，同时加入 Sass 的特色功能。以 <code>.scss</code> 作为拓展名。</p>
+<p>一个🌰：</p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.section</span> &#123;</span><br><span class="line">  <span class="selector-class">.title</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: <span class="number">#00ff00</span>;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">97%</span>;</span><br><span class="line">    <span class="selector-tag">p</span> &#123;</span><br><span class="line">      <span class="attribute">color</span>: white;</span><br><span class="line">      <span class="attribute">font</span>: &#123;</span><br><span class="line">        family: fantasy;</span><br><span class="line">        size: <span class="number">30em</span>;</span><br><span class="line">        weight: bold;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    &amp;：hover &#123; <span class="attribute">text-decoration</span>: underline; &#125;</span><br><span class="line">    &amp;-sidebar &#123; <span class="attribute">border</span>: <span class="number">1px</span> solid; &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="selector-class">.redbox</span> &#123;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="number">#ff0000</span>;</span><br><span class="line">    <span class="attribute">color</span>: <span class="number">#000000</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这是scss的嵌套规则，将一套 CSS 样式嵌套进另一套样式中，内层的样式将它外层的选择器作为父选择器。</p>
+<p>在嵌套 CSS 规则时，有时也需要直接使用嵌套外层的父选择器，例如，当给某个元素设定 <code>hover</code> 样式时，或者当 <code>body</code> 元素有某个 classname 时，可以用 <code>&amp;</code> 代表嵌套规则外层的父选择器。 <code>&amp;</code>作为选择器的第一个字符，其后可以跟随后缀生成复合的选择器。</p>
+<p>有些 CSS 属性遵循相同的命名空间 (namespace)，比如 <code>font-family, font-size, font-weight</code> 都以 <code>font</code> 作为属性的命名空间。为了便于管理这样的属性，同时也为了避免了重复输入，Sass 允许将属性嵌套在命名空间中。</p>
+<p>另一种也是最早的 Sass 语法格式，被称为缩进格式 (Indented Sass) 通常简称 “Sass”，是一种简化格式。它使用 “缩进” 代替 “花括号” 表示属性属于某个选择器，用 “换行” 代替 “分号” 分隔属性，很多人认为这样做比 SCSS 更容易阅读，书写也更快速，以 <code>.sass</code> 作为拓展名。</p>
+<p>一个🌰：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">.section</span><br><span class="line">  .title</span><br><span class="line">    color: #00ff00</span><br><span class="line">    width: 97%</span><br><span class="line">    p </span><br><span class="line">      color: white</span><br><span class="line"></span><br><span class="line">  .redbox </span><br><span class="line">    background-color: #ff0000</span><br><span class="line">    color: #000000</span><br></pre></td></tr></table></figure>
+
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/javascript/" rel="tag"><i class="fa fa-tag"></i> javascript</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+                <a href="/2020/12/10/%E5%88%86%E4%BA%AB%E4%B9%8B%E7%BC%96%E8%BE%91%E5%99%A8%E8%AE%BE%E7%BD%AE/" rel="next" title="分享之编辑器设置">
+                  <i class="fa fa-chevron-left"></i> 分享之编辑器设置
+                </a>
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+            </div>
+          </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-介绍"><span class="nav-number">1.</span> <span class="nav-text">1.介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-用法"><span class="nav-number">2.</span> <span class="nav-text">2.用法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-加载速度"><span class="nav-number">3.</span> <span class="nav-text">3.加载速度</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#懒加载"><span class="nav-number">3.1.</span> <span class="nav-text">懒加载</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#压缩图片"><span class="nav-number">3.2.</span> <span class="nav-text">压缩图片</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-拓展"><span class="nav-number">4.</span> <span class="nav-text">4.拓展</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="site-author-image" itemprop="image" alt="shenjiaoyao"
+    src="/images/avatar.gif">
+  <p class="site-author-name" itemprop="name">shenjiaoyao</p>
+  <div class="site-description" itemprop="description">Nothing is impossible.</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">12</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="feed-link motion-element">
+    <a href="/atom.xml" rel="alternate">
+      <i class="fa fa-rss"></i>RSS
+    </a>
+  </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/shenjiayao-sjy" title="GitHub &amp;rarr; https:&#x2F;&#x2F;github.com&#x2F;shenjiayao-sjy"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:1107570617@qq.com" title="E-Mail &amp;rarr; mailto:1107570617@qq.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 2019 – 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">shenjiaoyao</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script color='8,8,8' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/pisces.js"></script>
+<script src="/js/next-boot.js"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+  
+   <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas>
+   <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script>
+   <script type="text/javascript" src="/js/src/fireworks.js"></script>
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"log":false});</script></body>
+</html>
