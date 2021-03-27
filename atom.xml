@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://github.com/shenjiayao-sjy/shenjiayao.github.io/"/>
-  <updated>2020-12-12T10:51:18.993Z</updated>
+  <updated>2021-03-27T06:17:34.844Z</updated>
   <id>http://github.com/shenjiayao-sjy/shenjiayao.github.io/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>分享之可视化</title>
+    <link href="http://github.com/shenjiayao-sjy/shenjiayao.github.io/2021/03/27/%E5%88%86%E4%BA%AB%E4%B9%8B%E5%8F%AF%E8%A7%86%E5%8C%96/"/>
+    <id>http://github.com/shenjiayao-sjy/shenjiayao.github.io/2021/03/27/%E5%88%86%E4%BA%AB%E4%B9%8B%E5%8F%AF%E8%A7%86%E5%8C%96/</id>
+    <published>2021-03-26T18:06:38.000Z</published>
+    <updated>2021-03-27T06:17:34.844Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="AntV-数据可视化"><a href="#AntV-数据可视化" class="headerlink" title="AntV 数据可视化"></a>AntV 数据可视化</h2><p>AntV 是蚂蚁金服全新一代数据可视化解决方案，致力于提供一套简单<br>方便、专业可靠、无限可能的数据可视化最佳实践。</p><a id="more"></a><p>产品有G2,G6,F2,L7。</p><p>其中G2是以数据驱动，具有高度的易用性和扩展性的可视化图形语法。</p><p><img src="/shenjiayao-sjy/shenjiayao.github.io/2021/03/27/%E5%88%86%E4%BA%AB%E4%B9%8B%E5%8F%AF%E8%A7%86%E5%8C%96/shenjiayao/shenjiayao-sjy.github.io/source/_posts/%E5%88%86%E4%BA%AB%E4%B9%8B%E5%8F%AF%E8%A7%86%E5%8C%96/G2.png" alt></p><p>G6是一套便捷、动态和富有交互的流程图和关系分析的图标库。</p><p><img src="/shenjiayao-sjy/shenjiayao.github.io/2021/03/27/%E5%88%86%E4%BA%AB%E4%B9%8B%E5%8F%AF%E8%A7%86%E5%8C%96/shenjiayao/shenjiayao-sjy.github.io/source/_posts/%E5%88%86%E4%BA%AB%E4%B9%8B%E5%8F%AF%E8%A7%86%E5%8C%96/G6.png" alt></p><p>F2是一套为移动而生，开箱即用的可视化解决方案。</p><p><img src="/shenjiayao-sjy/shenjiayao.github.io/2021/03/27/%E5%88%86%E4%BA%AB%E4%B9%8B%E5%8F%AF%E8%A7%86%E5%8C%96/shenjiayao/shenjiayao-sjy.github.io/source/_posts/%E5%88%86%E4%BA%AB%E4%B9%8B%E5%8F%AF%E8%A7%86%E5%8C%96/F2.png" alt></p><p>L7是一套高性能、高渲染质量的地理空间数据可视化框架。</p><p><img src="/shenjiayao-sjy/shenjiayao.github.io/2021/03/27/%E5%88%86%E4%BA%AB%E4%B9%8B%E5%8F%AF%E8%A7%86%E5%8C%96/shenjiayao/shenjiayao-sjy.github.io/source/_posts/%E5%88%86%E4%BA%AB%E4%B9%8B%E5%8F%AF%E8%A7%86%E5%8C%96/L7.png" alt></p><h3 id="G2"><a href="#G2" class="headerlink" title="G2"></a>G2</h3><p>G2 是一套基于可视化编码的图形语法，以数据驱动，具有高度的易用性和扩展性，用户无需关注各种繁琐的实现细节，一条语句即可构建出各种各样的可交互的统计图表。</p><p>特性：</p><ul><li><p>简单、易用</p></li><li><p>完备的可视化编码</p></li><li><p>强大的扩展能力</p></li></ul><p>用法：<a href="https://www.yuque.com/antv/g2-docs/get-started" target="_blank" rel="noopener">https://www.yuque.com/antv/g2-docs/get-started</a></p><h3 id="BizCharts"><a href="#BizCharts" class="headerlink" title="BizCharts"></a>BizCharts</h3><p>在 React 环境下使用 G2，我们推荐可以尝试使用 BizCharts 和 Viser-react！这两个产品都是基于 G2 的 React 版本封装，使用体验更符合 React 技术栈的习惯。</p><p>特性：</p><ul><li>是基于 G2 4.X 封装的 React 图表库，具有 G2、React 的全部优点，可以让用户以组件的形式组合出无数种图表</li><li>集成了大量的统计工具，支持多种坐标系绘制，交互定制，动画定制以及图形定制等</li><li>性能稳定且具有强大的扩展能力和高度自定义能力</li><li>内置了<a href="https://bizcharts.net/product/BizCharts4/category/77/page/116" target="_blank" rel="noopener">g2Plot的42个基础图表</a></li></ul><p>用法：<a href="https://bizcharts.net/product/BizCharts4/category/61/page/98" target="_blank" rel="noopener">https://bizcharts.net/product/BizCharts4/category/61/page/98</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;AntV-数据可视化&quot;&gt;&lt;a href=&quot;#AntV-数据可视化&quot; class=&quot;headerlink&quot; title=&quot;AntV 数据可视化&quot;&gt;&lt;/a&gt;AntV 数据可视化&lt;/h2&gt;&lt;p&gt;AntV 是蚂蚁金服全新一代数据可视化解决方案，致力于提供一套简单&lt;br&gt;方便、专业可靠、无限可能的数据可视化最佳实践。&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+  </entry>
   
   <entry>
     <title>分享之fullpage</title>
